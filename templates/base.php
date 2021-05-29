@@ -13,6 +13,8 @@
          
           <a href="<?php echo rootUrl ?>register"><button>Créer un compte</button></a>
           <a href="<?php echo rootUrl ?>login"><button>Se connecter</button></a>
+          <a href="<?php echo rootUrl ?>login"><button>Demander un rendez-vous</button></a>
+
 
 
        </div>

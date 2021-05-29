@@ -24,4 +24,27 @@ class SecurityController extends AbstractController
 
     }
 
+
+
+    public function tryToRegisterUser($username, $password) : Response
+    {
+
+        $entityManager = $this->getEntityManager();
+
+
+        $user = new Entity();
+
+        $user->setProperty("table", "user");
+        $user->setProperty("username", $username);
+        $user->setProperty("pass", $username);
+        $user->setProperty("ID", 0);
+
+        $entityManager->insert($user);
+
+      
+        return new Response("we just registered $username");
+
+        
+    }
+
 }

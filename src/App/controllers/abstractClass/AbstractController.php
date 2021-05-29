@@ -4,6 +4,8 @@ namespace App\controllers\abstractClass;
 use App\Component\HttpComponent\Response;
 use App\model\orm\SuperOrm;
 
+require_once "src/services/database/entityManager.php";
+
 
 abstract class AbstractController
 {
@@ -52,6 +54,16 @@ abstract class AbstractController
 
       return new Response(file_get_contents("templates/$section/$subsection/index.php"));
   
+   }
+
+
+
+   public function getEntityManager(){
+
+       global $entityManager;
+
+       return $entityManager;
+
    }
 
 }
