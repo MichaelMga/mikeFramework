@@ -20,6 +20,8 @@ class SecurityController extends AbstractController
     public function tryToLoginUser($username, $password) : Response
     {
 
+        $user = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username", $username);
+
         return new Response("trying to log $username");
 
     }
@@ -36,14 +38,13 @@ class SecurityController extends AbstractController
 
         $user->setProperty("table", "user");
         $user->setProperty("username", $username);
-        $user->setProperty("pass", $username);
+        $user->setProperty("pass", $password);
         $user->setProperty("ID", 0);
 
         $entityManager->insert($user);
 
-      
-        return new Response("we just registered $username");
 
+        return new Response("we just registered $username");
         
     }
 

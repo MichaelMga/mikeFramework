@@ -63,6 +63,60 @@ class RowHandler
 
 
 
+
+
+    public function findRowFromProperty($property, $value)
+    {
+        try{
+            $sql = "SELECT * FROM $this->table WHERE $property=:property" ;
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":property" => $value]);
+
+            $count = $stmt->rowCount();
+
+            if($count > 0)
+            {
+                return true;
+            } else {
+                return false;
+            }
+
+            return $result[0];
+
+          } catch (PDOException $e)
+          {
+            echo "row not found";
+            echo $e->getMessage();
+
+          }
+
+    }
+
+
+
+    
+    public function getRowFromProperty($property, $value)
+    {
+        try{
+            $sql = "SELECT * FROM $this->table WHERE $property=:property" ;
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":property" => $value]);
+
+            $result = $stmt->fetchAll();
+            return $result[0];
+
+          } catch (PDOException $e)
+          {
+            echo "row not found ";
+            echo $e->getMessage();
+
+          }
+
+    }
+
+
+
+
     public function getRowFromId(string $id) : array
     {
          try{

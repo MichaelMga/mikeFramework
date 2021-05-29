@@ -38,4 +38,24 @@
     }
 
 
+
+    public function getElementFromProperty(string $property, $value)
+    {
+
+        echo "trying to get an element from property";
+
+
+        if($this->tableConn->getRowHandler()->findRowFromProperty("username","mikey") == true )
+        {
+
+            echo "we just found the user you look for";
+    
+        } else {
+            echo "this row was not found";
+            return false;
+        }
+ 
+    }
+
+
  }
