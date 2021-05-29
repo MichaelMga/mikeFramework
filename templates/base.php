@@ -17,8 +17,26 @@
         if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
 
           echo "<a href='" . rootUrl . "bLogout'><button>Se déconnecter</button></a>";
-    
 
+
+           if($_SESSION["username"] == admin){
+ 
+              echo "<a href='" . rootUrl . "bLogout'><button>Utilisateurs</button></a>";
+
+              echo "<a href='" . rootUrl . "bLogout'><button>Messages</button></a>";
+
+
+           } else {
+
+              echo "<a href='" . rootUrl . "bLogout'><button>Mon profil</button></a>";
+
+              echo "<a href='" . rootUrl . "bLogout'><button>Messages</button></a>";
+
+            
+           }
+
+
+    
         } else {
 
            echo "<a href='" . rootUrl . "login'><button>Se connecter</button></a>";

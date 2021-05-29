@@ -5,5 +5,7 @@
   define("dbPassword" , "");
   define("dbHost" , "localhost");
   define("dbName" , "theodb");
+  define("admin" , "theoadmin");
+
 
 

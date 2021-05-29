@@ -19,30 +19,21 @@ class SecurityController extends AbstractController
 
     public function tryToLoginUser($username, $password) : Response
     {
-
         $user = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username", $username);
 
         if($user != false)
         {
-            echo "ok, continuing the login process";
-
             $hash = $user->getPropertyValue("hash");
-            
+           
              if( password_verify($password , $hash)){
 
-                echo "ok, the password is good, login the user now ";
-
                 //session
-
                 $_SESSION["loggedIn"] = true;
                 $_SESSION["username"] = $username;
              
             } else {
-
                 echo "wrong password";
-
              };
-
 
         } else {
 
@@ -50,7 +41,6 @@ class SecurityController extends AbstractController
         }
 
         return new Response("trying to log $username");
-
     }
 
 
@@ -58,7 +48,6 @@ class SecurityController extends AbstractController
     {
 
         $entityManager = $this->getEntityManager();
-
 
         $user = new Entity();
 
@@ -68,7 +57,6 @@ class SecurityController extends AbstractController
         $user->setProperty("ID", 0);
 
         $entityManager->insert($user);
-
 
         return new Response("we just registered $username");
         
@@ -83,5 +71,8 @@ class SecurityController extends AbstractController
         return new Response("user logged out!");
 
     }
+
+
+    
 
 }
