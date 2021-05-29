@@ -16,13 +16,14 @@
 
  $matcher = new routing\matcher\RouteMatcher($routes);
 
- 
 
  try{
 
     //does the matcher finds the route
 
     if($matcher->routeFound($url)){
+
+        session_start();
 
         $controller = new $routes[$url]["controller"];
         $method = $routes[$url]["method"];

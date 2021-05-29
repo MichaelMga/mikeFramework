@@ -15,7 +15,6 @@ class RowToObjectConverter
         $this->object->setProperty("table", $table);
 
    
-
         foreach($row as $key => $value)
         {
             if(gettype($key) !== "integer"){
@@ -31,9 +30,6 @@ class RowToObjectConverter
 
         return $this->object;
 
-
     }
-
-
 
 }

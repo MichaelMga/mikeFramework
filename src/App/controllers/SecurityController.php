@@ -30,9 +30,14 @@ class SecurityController extends AbstractController
             
              if( password_verify($password , $hash)){
 
-                echo "password good";
+                echo "ok, the password is good, login the user now ";
 
-             } else {
+                //session
+
+                $_SESSION["loggedIn"] = true;
+                $_SESSION["username"] = $username;
+             
+            } else {
 
                 echo "wrong password";
 
@@ -67,6 +72,16 @@ class SecurityController extends AbstractController
 
         return new Response("we just registered $username");
         
+    }
+
+
+
+    public function logout() : Response
+    {
+        session_destroy();
+
+        return new Response("user logged out!");
+
     }
 
 }
