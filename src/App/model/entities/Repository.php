@@ -29,8 +29,10 @@
            return $entity;
 
        } else {
+
            echo "this entity was not found";
            return false;
+           
        }
 
        //convert it into an object
@@ -42,13 +44,13 @@
     public function getElementFromProperty(string $property, $value)
     {
 
-        echo "trying to get an element from property";
-
-
-        if($this->tableConn->getRowHandler()->findRowFromProperty("username","mikey") == true )
+        if($this->tableConn->getRowHandler()->findRowFromProperty($property,$value) == true )
         {
+            $rowArray = $this->tableConn->getRowHandler()->getRowFromProperty($property,$value);
+            $rowConverter = new RowToObjectConverter($rowArray, $this->table);
+            $entity = $rowConverter->getObject();
 
-            echo "we just found the user you look for";
+            return $entity;
     
         } else {
             echo "this row was not found";

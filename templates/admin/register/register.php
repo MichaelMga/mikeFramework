@@ -3,6 +3,6 @@
 
 <form action="dbRegister" method="post">
    <input type="text" name="username">
-   <input type="password" name="pass">
+   <input type="password" name="hash">
    <input type="submit">
 </form>
