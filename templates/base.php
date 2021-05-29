@@ -21,17 +21,14 @@
 
            if($_SESSION["username"] == admin){
  
-              echo "<a href='" . rootUrl . "bLogout'><button>Utilisateurs</button></a>";
-
-              echo "<a href='" . rootUrl . "bLogout'><button>Messages</button></a>";
+              echo "<a href='" . rootUrl . "users'><button>Utilisateurs</button></a>";
+              echo "<a href='" . rootUrl . "'><button>Messages</button></a>";
 
 
            } else {
 
-              echo "<a href='" . rootUrl . "bLogout'><button>Mon profil</button></a>";
-
-              echo "<a href='" . rootUrl . "bLogout'><button>Messages</button></a>";
-
+              echo "<a href='" . rootUrl . "'><button>Mon profil</button></a>";
+              echo "<a href='" . rootUrl . "'><button>Messages</button></a>";
             
            }
 

@@ -38,9 +38,9 @@ class FrontController extends AbstractController
     }
 
 
-    public function displayPage($section , $subsection , $page) : Response
+    public function displayPage($page) : Response
     {
-        return $this->renderPage($section , $subsection , $page);
+        return $this->renderPage($page);
     }
 
     
@@ -54,7 +54,6 @@ class FrontController extends AbstractController
         $entity->setProperty("name", "myXXcontroller");
         $entity->setProperty("ID", 0);
 
-    
 
         if($article != false)
         {

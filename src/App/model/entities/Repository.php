@@ -60,4 +60,22 @@
     }
 
 
+    public function getAll()
+    {
+        $entities = [];
+
+        $rows = $this->tableConn->getRowHandler()->getAllRows();
+    
+
+         foreach($rows as $row){
+
+            $rowConverter = new RowToObjectConverter($row, $this->table);
+            $entity = $rowConverter->getObject();
+            $entities[] = $entity;
+
+         }
+
+            return $entities;
+     }
+
  }

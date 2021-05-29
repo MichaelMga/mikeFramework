@@ -17,7 +17,7 @@
 class SecurityController extends AbstractController
 {
 
-    public function tryToLoginUser($username, $password) : Response
+    public function tryToLoginUser($username, $password)
     {
         $user = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username", $username);
 
@@ -30,6 +30,10 @@ class SecurityController extends AbstractController
                 //session
                 $_SESSION["loggedIn"] = true;
                 $_SESSION["username"] = $username;
+
+
+                header("Location:" . rootUrl );
+
              
             } else {
                 echo "wrong password";
@@ -40,7 +44,6 @@ class SecurityController extends AbstractController
             echo "sorry, we didn't find this user";
         }
 
-        return new Response("trying to log $username");
     }
 
 
@@ -64,11 +67,11 @@ class SecurityController extends AbstractController
 
 
 
-    public function logout() : Response
+    public function logout()
     {
         session_destroy();
 
-        return new Response("user logged out!");
+        header("Location:" . rootUrl );
 
     }
 

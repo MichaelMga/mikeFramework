@@ -26,35 +26,21 @@ abstract class AbstractController
 
 
 
-   public function renderPage($section, $subsection, $page) : Response
+   public function renderPage($page) : Response
    {
+
+      ob_start();
 
       include "templates/base.php";
 
-      return new Response(file_get_contents("templates/$section/$subsection/$page.php"));
+      include "templates/$page.php";
+
+      $content = ob_get_clean();
+
+      return new Response($content);
 
    }   
 
-
-   public function renderSection($section) : Response
-   {
-      
-      include "templates/base.php";
-   
-      return new Response(file_get_contents("templates/$section/index.php"));
-  
-   }
-
-
-   
-
-   public function renderSubSection($section, $subsection) : Response
-   {  
-      include "templates/base.php";
-
-      return new Response(file_get_contents("templates/$section/$subsection/index.php"));
-  
-   }
 
 
 
