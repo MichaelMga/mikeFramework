@@ -13,9 +13,6 @@ use App\model\entities\Entity;
 
 
 
-
-
-
 class ProjectTest extends TestCase
 {
  
@@ -71,11 +68,8 @@ class ProjectTest extends TestCase
      
     public function canIgetProjectPerUser()
     {
-
         $controller = new ProjectController();
         $projects = $controller->getProjectsPerUser(8);
-
-
      }
 
 

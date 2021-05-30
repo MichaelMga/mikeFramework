@@ -18,12 +18,17 @@ class AdminController extends AbstractController
 {
     public function seeUsers() : Response
     {
-        global $users;
-
         $users = $this->getSuperOrm()->getRepository("user")->getAll();
-        
-        return $this->renderPage("admin/seeUsers");
+        return $this->renderPage("admin/seeUsers", ["users" => $users]);
 
+    }
+
+     public function seeUser($userId) : Response
+     {
+
+            $user = $this->getSuperOrm()->getRepository("user")->getElementFromId($userId);
+            return $this->renderPage("admin/seeUser", ["user" => $user]);
+    
     }
 
 }

@@ -17,7 +17,10 @@
           rootUrl . "bRegister"=> ["bRegister" => "name", "controller" => "App\Controllers\SecurityController" , "method" =>  "tryToRegisterUser" , "parameters" => [$request->getPost("username", "admin"), $request->getPost("hash", "pass")]  ],
 
    
-   rootUrl . "users"=> ["name" => "seeUsers", "controller" => "App\Controllers\AdminController" , "method" =>  "seeUsers" , "parameters" => []  ]
+   rootUrl . "users"=> ["name" => "seeUsers", "controller" => "App\Controllers\AdminController" , "method" =>  "seeUsers" , "parameters" => []  ],
+
+          rootUrl . "user"=> ["name" => "seeUsers", "controller" => "App\Controllers\AdminController" , "method" =>  "seeUser" , "parameters" => [$request->getGet("id", 1)]  ]
+
 
 
 ];

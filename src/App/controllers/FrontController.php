@@ -39,9 +39,9 @@ class FrontController extends AbstractController
     }
 
 
-    public function displayPage($page) : Response
+    public function displayPage($page, $array) : Response
     {
-        return $this->renderPage($page);
+        return $this->renderPage($page, $array);
     }
 
     
