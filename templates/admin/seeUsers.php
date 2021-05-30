@@ -1,5 +1,4 @@
 
-
 Voici vos utilisateurs </br></br>
 
 
@@ -21,7 +20,7 @@ Voici vos utilisateurs </br></br>
     if( $user->getPropertyValue("username") != admin){
         echo $user->getPropertyValue("username");
 
-        echo " <button>voir</button>";
+        echo " <a  href='" . rootUrl . "user?id= " . htmlentities($user->getPropertyValue("ID")) . "'><button>voir</button></a>";
 
         echo "</br></br>";
 

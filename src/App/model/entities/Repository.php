@@ -86,10 +86,34 @@
             return false;
         }
  
-
-
  
     }
+
+        
+
+    public function getAllElementsFromProperties(array $array)
+    {
+        echo "getting all elements from properties";
+
+
+        if($this->tableConn->getRowHandler()->findRowFromProperties($array) == true )
+        {
+
+
+    
+        } else {
+            echo "this row was not found";
+            return false;
+        }
+ 
+   
+    }
+
+
+    
+
+
+    
 
 
 

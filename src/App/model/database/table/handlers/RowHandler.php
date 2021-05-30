@@ -95,6 +95,54 @@ class RowHandler
 
 
     
+    public function findRowFromProperties(array $array)
+    {      
+           $whereEncodedChain = "";
+           $wherePrepareArray = [];
+
+
+            $i = 0;
+
+           foreach($array as $key => $value)
+           {
+             $whereEncodedChain .= "$key = :val$i";
+             $wherePrepareArray[":val$i"] = $value;
+
+            if($i < count($array) - 1 )
+            {
+                $whereEncodedChain .= " AND ";
+            }
+              $i++;
+
+           }
+           
+    
+
+        try{
+            $sql = "SELECT * FROM $this->table WHERE $whereEncodedChain" ;
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute($wherePrepareArray);
+            $count = $stmt->rowCount();
+
+            if($count > 0)
+            {
+                return true;
+            } else {
+                return false;
+            }
+
+            return $result[0];
+
+          } catch (PDOException $e)
+          {
+            echo "row not found";
+            echo $e->getMessage();
+
+          }
+
+    }
+
+
     public function getRowFromProperty($property, $value)
     {
         try{
