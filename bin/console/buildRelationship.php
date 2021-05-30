@@ -12,7 +12,7 @@
    use App\model\database\relationships\RelationshipContentBuilder;
 
 
-    $relationshipType = readline("what's the type of relationship you want to build? :");
+    $relationshipType = readline("what's the type of relationship you want to build?  (1 for one to many, 2 for):");
 
     $firstEntity = readline("what's the first entity you want to build the relationship with ? :");
     $secondEntity = readline("what's the second entity you want to build the relationship with ? :");

@@ -53,10 +53,10 @@ use App\model\database\constraints\ForeignKeyConstraint;
 
  
          $secondEntityUniqueConstraint = new UniqueConstraint($this->firstEntity . '_id');
-         $this->secondEntity->getColumnHandler()->addConstraint($secondEntityUniqueConstraint);
+         $this->secondEntityTable->getColumnHandler()->addConstraint($secondEntityUniqueConstraint);
  
          $secondEntityFkConstraint = new ForeignkeyConstraint($this->firstEntity);
-         $this->secondEntity->getColumnHandler()->addConstraint($secondEntityFkConstraint);
+         $this->secondEntityTable->getColumnHandler()->addConstraint($secondEntityFkConstraint);
  
 
      }
