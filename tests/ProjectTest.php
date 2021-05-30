@@ -39,8 +39,7 @@ class ProjectTest extends TestCase
      {
       
         //$controller = new ProjectController();
-       // $controller->createProject("first_project", 8);
-        
+        //$controller->createProject("myProject", 8);
 
      }
 
@@ -54,7 +53,7 @@ class ProjectTest extends TestCase
 
         $controller = new ProjectController();
      
-        $project = $controller->getProjectFromId(4);
+        $project = $controller->getProjectFromId(8);
 
         $this->assertInstanceOf(Entity::class , $project);
 

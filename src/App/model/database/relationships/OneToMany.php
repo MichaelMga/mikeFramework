@@ -45,22 +45,8 @@ use App\model\database\constraints\ForeignKeyConstraint;
      public function execute() : void
      {
          $this->triggerColumnBuilding();
-         $this->triggerConstraintBuilding();
      }
- 
-     public function triggerConstraintBuilding() : void
-     {
 
- 
-         $secondEntityUniqueConstraint = new UniqueConstraint($this->firstEntity . '_id');
-         $this->secondEntityTable->getColumnHandler()->addConstraint($secondEntityUniqueConstraint);
- 
-         $secondEntityFkConstraint = new ForeignkeyConstraint($this->firstEntity);
-         $this->secondEntityTable->getColumnHandler()->addConstraint($secondEntityFkConstraint);
- 
-
-     }
- 
  
      public function triggerColumnBuilding() : void
      {

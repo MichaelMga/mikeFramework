@@ -27,6 +27,7 @@ class ProjectController extends AbstractController
          $project->setProperty("table", "project");
          $project->setProperty("name", $projectName);
          $project->setProperty("user_id", $userId);
+         $project->setProperty("status", "pending");
          $project->setProperty("ID", 0);
          
          $entityManager->insert($project);
