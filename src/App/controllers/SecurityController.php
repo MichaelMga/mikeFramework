@@ -28,6 +28,7 @@ class SecurityController extends AbstractController
              if( password_verify($password , $hash)){
 
                 //session
+                
                 $_SESSION["loggedIn"] = true;
                 $_SESSION["username"] = $username;
 

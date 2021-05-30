@@ -93,27 +93,24 @@
 
     public function getAllElementsFromProperties(array $array)
     {
-        echo "getting all elements from properties";
+        
+     $entities = [];
+            
+     $rows = $this->tableConn->getRowHandler()->getAllRowsFromProperties($array);
+     
 
+      foreach($rows as $row)
+      {       
+               $rowConverter = new RowToObjectConverter($row, $this->table);
+               $entity = $rowConverter->getObject();
 
-        if($this->tableConn->getRowHandler()->findRowFromProperties($array) == true )
-        {
-
-
-    
-        } else {
-            echo "this row was not found";
-            return false;
-        }
+               $entities[] = $entity;
+      }
  
-   
+
+      return $entities;
+
     }
-
-
-    
-
-
-    
 
 
 

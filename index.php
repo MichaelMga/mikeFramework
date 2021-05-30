@@ -9,6 +9,7 @@
  use App\component\httpComponent\Response;
  use App\component\Routing;
 
+ global $request;
  $request = Request::createFromSuperGlobals();
  $url = $request->getUrl();
 

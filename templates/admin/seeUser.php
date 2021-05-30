@@ -7,16 +7,24 @@
 
 <?php 
 
+
+ if(count($pendingProjects) > 0){
+
    foreach($pendingProjects as $pendingProject )
    {
-
-        echo $pendingProject ; 
-
-        echo " <button>Voir projet </button>";
-
+        echo $pendingProject->getPropertyValue("name"); 
+        echo "<a href='" . rootUrl  . "project?id=" . $pendingProject->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
         echo "</br>";
 
    }
+ } else {
+
+
+   echo "pas de projet en cours";
+
+
+
+ }
 
 ?>
 
@@ -28,36 +36,44 @@
 
 <?php 
 
+ if(count($waitingPaymentProjects) > 0){
    foreach($waitingPaymentProjects as $waitingPaymentProject )
    {
-
         echo $waitingPaymentProject ; 
-
-        echo " <button>Voir projet </button>";
-
+        echo "<a href='" . rootUrl  . "?id=" . $waitingPaymentProject->getPropertyValue("ID") . "'><button>Voir projet </button>";
         echo "</br>";
+    }
 
-   }
+  } else {
+
+   echo "pas de projet impayé";
+   
+  }
 
 ?>
 
- </br> 
- </br>
 
-   <h1> Projets terminés (paiement réalisé) : </h1>
+ <h1> Projets terminés (paiement réalisé) : </h1>
 
 
-   <?php 
+<?php 
 
-foreach($doneProjects as $doneProject )
-{
+   if(count($doneProjects) > 0){
 
-     echo $doneProject ; 
+     foreach($doneProjects as $doneProject )
+     {
+       echo $doneProject ; 
+       echo "<a href='" . rootUrl  . "?id=" . $doneProject->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
+       echo "</br>";
+    }
 
-     echo " <button>Voir projet </button>";
 
-     echo "</br>";
+   } else {
 
-}
+      echo "<p>Pas de projet accomplis</p>";
+
+  }
+
+
 
 ?>
