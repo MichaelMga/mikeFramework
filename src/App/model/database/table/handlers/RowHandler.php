@@ -147,6 +147,28 @@ class RowHandler
     }
 
 
+
+    public function getAllRowsFromProperty($property, $value)
+    {
+
+        try{
+            $sql = "SELECT * FROM $this->table WHERE $property=:property" ;
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":property" => $value]);
+
+            $result = $stmt->fetchAll();
+            return $result;
+
+          } catch (PDOException $e)
+          {
+            echo "row not found ";
+            echo $e->getMessage();
+
+          }
+
+    }
+
+
     public function updateRow($row,$id, $value) : void
     {
         $sql = "UPDATE $this->table SET $row='$value' WHERE ID=$id";

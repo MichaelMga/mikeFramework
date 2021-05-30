@@ -26,12 +26,35 @@ class ProjectController extends AbstractController
          $project = new Entity();
          $project->setProperty("table", "project");
          $project->setProperty("name", $projectName);
-         //$project->setProperty("user_id", $userId);
+         $project->setProperty("user_id", $userId);
          $project->setProperty("ID", 0);
-
          $entityManager->insert($project);
           
     }
+
+
+
+    
+    public function getProjectFromId($projectId) : Object
+    {  
+
+        $project = $this->getSuperOrm()->getRepository("project")->getElementFromId($projectId);
+
+        return $project;
+     
+    }
+
+
+
+    public function getProjectsPerUser($userId) : array
+    {
+        $projects = $this->getSuperOrm()->getRepository("project")->getAllElementsFromProperty("user_id", $userId);
+        
+        return $projects;
+
+    }
+
+    
 
 
 }

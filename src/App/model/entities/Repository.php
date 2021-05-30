@@ -60,6 +60,39 @@
     }
 
 
+    
+
+    public function getAllElementsFromProperty(string $property, $value)
+    {
+
+        if($this->tableConn->getRowHandler()->findRowFromProperty($property,$value) == true )
+        {
+            $entities = [];
+            
+            $rows = $this->tableConn->getRowHandler()->getAllRowsFromProperty($property,$value);
+
+            foreach($rows as $row)
+            {       
+               $rowConverter = new RowToObjectConverter($row, $this->table);
+               $entity = $rowConverter->getObject();
+
+               $entities[] = $entity;
+            }
+ 
+            return $entities;
+    
+        } else {
+            echo "this row was not found";
+            return false;
+        }
+ 
+
+
+ 
+    }
+
+
+
     public function getAll()
     {
         $entities = [];
