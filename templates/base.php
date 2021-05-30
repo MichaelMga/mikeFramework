@@ -22,29 +22,28 @@
            if($_SESSION["username"] == admin){
  
               echo "<a href='" . rootUrl . "users'><button>Utilisateurs</button></a>";
+              echo "<a href='" . rootUrl . "users'><button>Projets</button></a>";
               echo "<a href='" . rootUrl . "'><button>Messages</button></a>";
 
 
            } else {
 
-              echo "<a href='" . rootUrl . "'><button>Mon profil</button></a>";
               echo "<a href='" . rootUrl . "'><button>Messages</button></a>";
+              echo "<a href='" . rootUrl . "'><button>missions en cours</button></a>";
+              echo "<a href='" . rootUrl . "'><button>anciennes mission</button></a>";
             
            }
-
 
     
         } else {
 
            echo "<a href='" . rootUrl . "login'><button>Se connecter</button></a>";
+           echo "<a href='<?php echo rootUrl ?>register'><button>Créer un compte</button></a>";
         
         }
         
       ?>   
          
-          <a href="<?php echo rootUrl ?>register"><button>Créer un compte</button></a>
-          <a href="<?php echo rootUrl ?>"><button>Demander un rendez-vous</button></a>
-
 
 
        </div>

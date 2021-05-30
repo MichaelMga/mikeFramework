@@ -19,6 +19,7 @@ class FrontController extends AbstractController
 
     public function displayHome()
     {
+
         return $this->renderHome();
 
     }

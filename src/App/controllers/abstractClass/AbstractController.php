@@ -18,25 +18,44 @@ abstract class AbstractController
 
    public function renderHome() : Response
    {
+
       include "templates/base.php";
 
-      return new Response(file_get_contents("templates/home.php"));
+      if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
+
+         ob_start();
+
+          if($_SESSION["username"] == admin){
+
+            include "templates/admin/index.php";
+
+          } else {
+            
+            $username = $_SESSION["username"];
+            include "templates/user/index.php";   
+
+          }   
+
+       } else {
+           include "templates/home.php";
+       }
+
+
+
+       $content = ob_get_clean();
+       return new Response($content);
 
    }   
-
 
 
    public function renderPage($page) : Response
    {
 
       ob_start();
-
       include "templates/base.php";
-
       include "templates/$page.php";
 
       $content = ob_get_clean();
-
       return new Response($content);
 
    }   

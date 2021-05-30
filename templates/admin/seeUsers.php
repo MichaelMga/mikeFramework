@@ -12,10 +12,8 @@ Here are your users :
 
     if( $user->getPropertyValue("username") != admin){
         echo $user->getPropertyValue("username");
-        echo "</br>";
 
     }
-    
 
  }
 
