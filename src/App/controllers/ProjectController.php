@@ -68,8 +68,6 @@ class ProjectController extends AbstractController
                 }
 
 
-
-
             } else {
 
                 echo "vous n'avez pas accès à cette page";   

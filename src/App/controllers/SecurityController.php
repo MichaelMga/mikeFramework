@@ -31,7 +31,7 @@ class SecurityController extends AbstractController
                 
                 $_SESSION["loggedIn"] = true;
                 $_SESSION["username"] = $username;
-
+                $_SESSION["user_id"] = $user->getPropertyValue("ID");                
 
                 header("Location:" . rootUrl );
 

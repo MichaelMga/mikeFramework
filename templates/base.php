@@ -18,23 +18,13 @@
 
           echo "<a href='" . rootUrl . "bLogout'><button>Se déconnecter</button></a>";
 
-
            if($_SESSION["username"] == admin){
  
               echo "<a href='" . rootUrl . "users'><button>Utilisateurs</button></a>";
               echo "<a href='" . rootUrl . "users'><button>Projets</button></a>";
-              echo "<a href='" . rootUrl . "'><button>Messages</button></a>";
 
+           } 
 
-           } else {
-
-              echo "<a href='" . rootUrl . "'><button>Messages</button></a>";
-              echo "<a href='" . rootUrl . "'><button>missions en cours</button></a>";
-              echo "<a href='" . rootUrl . "'><button>anciennes mission</button></a>";
-            
-           }
-
-    
         } else {
 
            echo "<a href='" . rootUrl . "login'><button>Se connecter</button></a>";

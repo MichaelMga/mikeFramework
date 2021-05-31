@@ -19,21 +19,18 @@ abstract class AbstractController
    public function renderHome() : Response
    {
 
+      ob_start();
+
       include "templates/base.php";
 
       if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
-
-         ob_start();
 
           if($_SESSION["username"] == admin){
 
             include "templates/admin/index.php";
 
           } else {
-            
-            $username = $_SESSION["username"];
-            include "templates/user/index.php";   
-
+             header("Location:" . rootUrl . "user?id=" . $_SESSION["user_id"] );
           }   
 
        } else {
