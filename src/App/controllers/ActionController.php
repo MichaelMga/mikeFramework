@@ -18,7 +18,7 @@ class ActionController extends AbstractController
 {
 
 
-      public function createAction($projectId, $name)
+      public function createAction(int $projectId, string $name) : void
       {
 
           $action = new Entity();
@@ -29,8 +29,20 @@ class ActionController extends AbstractController
           $action->setProperty("ID", 0);
 
           $this->getEntityManager()->insert($action);
+          
 
       }
+
+
+      public function removeAction(int $actionId) : void
+      {
+
+          $action = $this->getSuperOrm()->getRepository("action")->getElementFromId($actionId);
+
+          $this->getEntityManager()->remove($action);
+
+      }
+
 
 
 }

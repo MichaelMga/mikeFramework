@@ -54,7 +54,7 @@ class RowHandler
 
           } catch (PDOException $e)
           {
-            echo "rows not found =================================><=========";
+            echo "rows not found ";
             echo $e->getMessage();
 
           }
@@ -266,11 +266,12 @@ class RowHandler
         $stmt->execute();
     }
 
-    public function removeRow($id) : void
+    public function removeRowFromID($id) : void
     {
-        $sql = "DELETE FROM $this->table WHERE ID=$id";
+        $sql = "DELETE FROM $this->table WHERE ID=:id";
+
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
+        $stmt->execute([':id' => $id]);
     }
 
 

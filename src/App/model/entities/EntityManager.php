@@ -24,9 +24,6 @@ class EntityManager
 
         if($table->getRowHandler()->findRowFromId(($entity->getPropertyValue("ID"))) == true){
 
-            echo "found the dude";
-
-
             //$EntityUpdateQueryBag = new EntityInsertionQueryBag($entity);
 /*
 
@@ -38,14 +35,31 @@ class EntityManager
            INSERT INTO column1,column2 VALUES ( val1, val2)
 
        */
-        } else {
 
-            echo "naah we didnt find the man";
+
+
+
+        } else {
 
             $EntityInsertionQueryBag = new EntityInsertionQueryBag($entity);
             $table->getRowHandler()->insertRow($EntityInsertionQueryBag->getColumnsString(), $EntityInsertionQueryBag->getValuesString());
 
         }
-    }    
+    }   
 
+
+
+
+    public function remove(Object $entity)
+    {
+        $table = new Table($this->conn, $entity->getPropertyValue("table"));
+
+        //else
+
+        if($table->getRowHandler()->findRowFromId(($entity->getPropertyValue("ID"))) == true){
+
+            $table->getRowHandler()->removeRowFromId($entity->getPropertyValue("ID"));
+        }
+    }
+    
 }

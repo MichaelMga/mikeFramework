@@ -32,7 +32,7 @@ class ActionTest extends TestCase
      }
 
 
-      /**
+    /**
      * @test
      */
 
@@ -46,6 +46,20 @@ class ActionTest extends TestCase
 
        $actionController->createAction($projectId, $name);
 
+    }
+
+
+    /**
+     * @test
+     */
+
+    public function canIremoveAction()
+    {
+       //$actionController = new ActionController();
+
+       //$actionId = 1;
+
+       //$actionController->removeAction($actionId);
 
     }
 

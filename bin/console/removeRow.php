@@ -15,7 +15,7 @@
   try{
      
      $table = new Table($conn, $entityName);
-     $table->getRowHandler()->removeRow("1");
+     $table->getRowHandler()->removeRowFromID("1");
 
   } catch (Exception $e)
   {
