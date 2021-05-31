@@ -25,6 +25,7 @@ class ActionController extends AbstractController
 
           $action->setProperty("table", "action");
           $action->setProperty("name", $name);
+          $action->setProperty("project_id", $projectId);
           $action->setProperty("status", "pendingAction");
           $action->setProperty("ID", 0);
 

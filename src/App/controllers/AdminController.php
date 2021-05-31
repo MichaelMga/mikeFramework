@@ -36,7 +36,6 @@ class AdminController extends AbstractController
             return $this->renderPage("admin/seeUser", ["user" => $user , "pendingProjects" =>  $pendingProjects , "waitingPaymentProjects" => $waitingPaymentProjects ,  "doneProjects" => $doneProjects ]);
     
     }
-
     
 
 }

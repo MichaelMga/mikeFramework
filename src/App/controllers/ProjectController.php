@@ -55,15 +55,19 @@ class ProjectController extends AbstractController
 
             $project = $this->getProjectFromId($projectId);
 
+            $actions = $this->getSuperOrm()->getRepository("action")->getAllElementsFromProperty("project_id", $projectId);
+
+
+
             if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
 
 
                 if($_SESSION["username"] == admin){
 
-                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project]);
+                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "actions" => $actions ]);
                 } else {
 
-                    return $this->renderPage( "user/projects/seeProject" , ["project" =>  $project]);
+                    return $this->renderPage( "user/projects/seeProject" , ["project" =>  $project, "actions" => $actions ]);
 
                 }
 

@@ -65,8 +65,6 @@
     public function getAllElementsFromProperty(string $property, $value)
     {
 
-        if($this->tableConn->getRowHandler()->findRowFromProperty($property,$value) == true )
-        {
             $entities = [];
             
             $rows = $this->tableConn->getRowHandler()->getAllRowsFromProperty($property,$value);
@@ -81,11 +79,7 @@
  
             return $entities;
     
-        } else {
-            echo "this row was not found";
-            return false;
-        }
- 
+    
  
     }
 

@@ -4,13 +4,33 @@
 
 <h1> Devis :</h1>
 
-<h4>Pose des meubles : fait</h4> <button>Repasser à "en cours"</button>  </br>
 
+<?php 
 
-<h4>nettoyage filtre : fait</h4> <button>Repasser à "en cours"</button>  </br>
+   
+   foreach($actions as $action)
+   {
+      echo $action->getPropertyValue("name");
+      $status = $action->getPropertyValue("status");
 
+      if($status == "pendingAction"){
 
-<h4>nettoyage filtre : en cours</h4> <button>Passer à "fait"</button>  </br>
+        echo "<button>Repasser à fait</button>";
+        echo "</br>";
+
+      } else if($status == "doneAction") {
+
+        echo "<button>Repasser à fait</button> ";
+      
+    } else {
+
+        echo "erreur d'affichage, statut non reconnu";
+      }
+
+   }
+
+?>
+
 
 
 
