@@ -24,19 +24,9 @@ class EntityManager
 
         if($table->getRowHandler()->findRowFromId(($entity->getPropertyValue("ID"))) == true){
 
-            //$EntityUpdateQueryBag = new EntityInsertionQueryBag($entity);
-/*
+            $EntityUpdateQueryBag = new EntityUpdateQueryBag($entity);
 
-            //UPDATE table-name 
-           SET column-name1 = value1, 
-           column-name2 = value2, ...
-           WHERE condition
-
-           INSERT INTO column1,column2 VALUES ( val1, val2)
-
-       */
-
-
+            $table->getRowHandler()->updateRowFromId($entity->getPropertyValue("ID"), $EntityUpdateQueryBag->getUpdateQuery());
 
 
         } else {

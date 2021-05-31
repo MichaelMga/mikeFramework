@@ -26,7 +26,6 @@ class ActionTest extends TestCase
      public function canIgetActionController()
      {
         $controller = new ActionController();
-
         $this->assertInstanceOf(ActionController::class, $controller);
 
      }
@@ -39,11 +38,8 @@ class ActionTest extends TestCase
     public function canIcreateAction()
     {
        $actionController = new ActionController();
-
        $projectId = 8;
-
        $name = "my action";
-
        $actionController->createAction($projectId, $name);
 
     }
@@ -56,10 +52,22 @@ class ActionTest extends TestCase
     public function canIremoveAction()
     {
        //$actionController = new ActionController();
-
        //$actionId = 1;
-
        //$actionController->removeAction($actionId);
+
+    }
+
+
+
+     /**
+     * @test
+     */
+
+    public function canIupdateAction()
+    {
+       $actionController = new ActionController();
+       $actionId = 2;
+       $actionController->updateActionName($actionId, "newName");
 
     }
 

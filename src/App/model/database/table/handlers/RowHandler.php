@@ -259,9 +259,9 @@ class RowHandler
     }
 
 
-    public function updateRow($row,$id, $value) : void
+    public function updateRowFromId(int $id ,string $updateQuery) : void
     {
-        $sql = "UPDATE $this->table SET $row='$value' WHERE ID=$id";
+        $sql = "UPDATE $this->table SET $updateQuery WHERE ID=$id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
     }

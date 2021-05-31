@@ -34,6 +34,19 @@ class ActionController extends AbstractController
       }
 
 
+
+      public function updateActionName(int $actionId, string $newName) : void
+      {
+         
+          $action = $this->getSuperOrm()->getRepository("action")->getElementFromId($actionId);
+
+          $action->setProperty("name", $newName);
+
+          $this->getEntityManager()->insert($action);
+
+      }
+
+
       public function removeAction(int $actionId) : void
       {
 
