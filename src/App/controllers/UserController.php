@@ -32,12 +32,41 @@ class UserController extends AbstractController
 
 
 
-   public function getUserFromNameAsync($userName) : JsonResponse
+   public function getUserFromName(string $userName) 
+   {
+     try{
+
+         $user = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username",$userName);
+
+        return $user;
+
+     } catch (Exception $e)
+     {
+
+        echo $e->getMessage();
+
+
+     }
+
+
+   }
+
+
+
+   public function getUserFromNameAsync(string $userName) : JsonResponse
     {
         
-      $foundUser = true;
+      $user = $this->getUserFromName($userName);
 
-      return new JsonResponse(["foundUser" => $foundUser]);
+      if($user != false){
+
+        $username = $user->getPropertyValue("username");
+
+      } else {
+        $username = false;
+      }
+
+      return new JsonResponse(["user" => $username]);
 
    }
 

@@ -25,26 +25,32 @@
 
 
 
+
+
    <script>
+
+    foundMessage = document.getElementById("foundUser");
    
        function searchUser(){
 
-         let user = document.getElementById("user");
+         let user = document.getElementById("user").value;
         
          xrq = new XMLHttpRequest(); 
 
          xrq.onload = function(){
 
-                response = JSON.parse(this.responseText);
+                let response = JSON.parse(this.responseText);
 
-                if(response.foundUser == true){
+                console.log(response);
 
-                    alert("ok, utilisateur ajouté");
+                if(response.user != false){
+
+                  alert('Nous avons trouvés ' + response.user);
+                  
 
                 } else {
 
-                    alert("nous n'avons pas trouvé cet utilisateur");
-
+                    alert('desolé, nous n avons pas trouvés cet utilisateur');
                 }
          }
 
