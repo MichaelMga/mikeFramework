@@ -25,8 +25,9 @@
  
        } else if($status == "doneAction") {
 
-         echo " (statut: terminé)";  
-         echo "<button>Repasser à en cours</button> ";
+         echo " (statut: terminé)"; 
+
+         echo "<a href='"  . rootUrl . "updateActionStatus?actionId=$id&newStatus=pendingAction'><button>Repasser à en cours</button></a>";
          echo "</br>";
 
        
