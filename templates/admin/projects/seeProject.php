@@ -14,22 +14,27 @@
     {
        echo $action->getPropertyValue("name");
        $status = $action->getPropertyValue("status");
+       $id = $action->getPropertyValue("ID");
  
        if($status == "pendingAction"){
 
          echo " (statut: en cours)"; 
          
-         echo "<a href='"  . "'><button>Passer à fait</button></a>";
+         echo "<a href='"  . rootUrl . "updateActionStatus?actionId=$id&newStatus=doneAction'><button>Passer à fait</button></a>";
          echo "</br>";
  
        } else if($status == "doneAction") {
 
          echo " (statut: terminé)";  
          echo "<button>Repasser à en cours</button> ";
+         echo "</br>";
+
        
      } else {
  
          echo "erreur d'affichage, statut non reconnu";
+         echo "</br>";
+
        }
  
     }
@@ -41,6 +46,10 @@
 
 
 ?>
+
+</br>
+</br>
+</br>
 
 
 

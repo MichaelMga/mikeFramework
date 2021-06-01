@@ -51,6 +51,23 @@ class ActionController extends AbstractController
       }
 
 
+      
+      public function updateActionStatus(int $actionId, string $newStatus) : void
+      {
+         
+        $action = $this->getSuperOrm()->getRepository("action")->getElementFromId($actionId);
+
+        $action->setProperty("status", $newStatus);
+
+        $projectid = $action->getPropertyValue("project_id");
+
+        $this->getEntityManager()->insert($action);
+
+        Header("Location:" . rootUrl . "project?id=$projectid");
+
+      }
+
+
       public function removeAction(int $actionId) : void
       {
 
