@@ -11,20 +11,19 @@
      private $url;
 
 
-     public function __construct($get, $post, $files, $url, $session){
+     public function __construct($get, $post, $files, $url){
 
         $this->get = $get;
         $this->post = $post;
         $this->file = $files;
         $this->url = $url;
-        $this->session = $session;
 
      }
 
 
      public static function createFromSuperGlobals(){
 
-        return new Static($_GET, $_POST, $_FILES, parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) , $_SESSION);
+        return new Static($_GET, $_POST, $_FILES, parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) );
 
      }
 
@@ -65,21 +64,6 @@
             return $this->url;
 
      }
-
-
-     
-     public function getSession(string $param){
-
-      if(isset($this->session[$param]))
-      {
-         return $this->session[$param];
-
-      } else {
-         return false;
-      }
-
-
-    }
 
 
   }

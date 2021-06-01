@@ -86,6 +86,12 @@ class ProjectController extends AbstractController
     }
 
 
+    public function renderProjectCreationPage() : Response
+    {
+         return $this->renderPage("admin/projects/new", []);
+    }
+
+
 
     public function getProjectsPerUser($userId) : array
     {

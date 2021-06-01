@@ -8,26 +8,37 @@
 <?php 
 
    
-   foreach($actions as $action)
-   {
-      echo $action->getPropertyValue("name");
-      $status = $action->getPropertyValue("status");
+  if(count($actions) > 0)
+  {
+    foreach($actions as $action)
+    {
+       echo $action->getPropertyValue("name");
+       $status = $action->getPropertyValue("status");
+ 
+       if($status == "pendingAction"){
 
-      if($status == "pendingAction"){
+         echo " (statut: en cours)"; 
+         
+         echo "<a href='" .  . "'><button>Passer à fait</button></a>";
+         echo "</br>";
+ 
+       } else if($status == "doneAction") {
 
-        echo "<button>Repasser à fait</button>";
-        echo "</br>";
+         echo " (statut: terminé)";  
+         echo "<button>Repasser à en cours</button> ";
+       
+     } else {
+ 
+         echo "erreur d'affichage, statut non reconnu";
+       }
+ 
+    }
 
-      } else if($status == "doneAction") {
+  } else {
 
-        echo "<button>Repasser à fait</button> ";
-      
-    } else {
+    echo "il n'y a pas encore d'actions enregistrées sur ce projet";
+  }
 
-        echo "erreur d'affichage, statut non reconnu";
-      }
-
-   }
 
 ?>
 

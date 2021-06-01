@@ -5,7 +5,7 @@
 
     rootUrl => ["name" => "home", "controller" => "App\Controllers\FrontController" , "method" =>  "renderHome" , "parameters" => []  ] ,
 
-    rootUrl . "user/home" => ["name" => "home", "controller" => "App\Controllers\UserController" , "method" =>  "seeUser" , "parameters" => [$request->getSession("ID")]  ] ,
+    rootUrl . "user/home" => ["name" => "home", "controller" => "App\Controllers\UserController" , "method" =>  "seeUser" , "parameters" => [isset($_SESSION["id"]) ? $_SESSION["id"] : false  ]  ] ,
 
     rootUrl . "login"=> ["name" => "login", "controller" => "App\Controllers\FrontController" , "method" =>  "displayPage" , "parameters" => ["admin/login/login", []]  ] ,
         rootUrl . "bLogin"=> ["name" => "bLogin", "controller" => "App\Controllers\SecurityController" , "method" =>  "tryToLoginUser" , "parameters" => [$request->getPost("username", "admin"), $request->getPost("hash", "pass")]  ],
@@ -21,6 +21,8 @@
           rootUrl . "user"=> ["name" => "seeUsers", "controller" => "App\Controllers\AdminController" , "method" =>  "seeUser" , "parameters" => [$request->getGet("id", 1)]  ],
 
    rootUrl . "project"=> ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "renderProjectPage" , "parameters" => [$request->getGet("id", 1)]  ],
+
+         rootUrl . "newProject"=> ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "renderProjectCreationPage" , "parameters" => [] ],
 
    rootUrl . "chat"=> ["name" => "seeProject", "controller" => "App\Controllers\ChatController" , "method" =>  "displayChat" , "parameters" => []  ]
 
