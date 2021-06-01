@@ -26,6 +26,9 @@
 
          rootUrl . "newProject"=> ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "renderProjectCreationPage" , "parameters" => [] ],
 
+               rootUrl . "dbNewProject"=> ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "createProjectFromUserName" , "parameters" => [ $request->getPost("project", "myrpject"), $request->getPost("userInput", "mikey") ] ],
+
+
    rootUrl . "chat"=> ["name" => "seeProject", "controller" => "App\Controllers\ChatController" , "method" =>  "displayChat" , "parameters" => []  ]
 
 ];

@@ -21,17 +21,45 @@ class ProjectController extends AbstractController
     public function createProject($projectName , $userId ) : void
     {  
 
-        $entityManager = $this->getEntityManager();
+        try { 
+            $entityManager = $this->getEntityManager();
+             $project = new Entity();
+             $project->setProperty("table", "project");
+             $project->setProperty("name", $projectName);
+             $project->setProperty("user_id", intval($userId));
+             $project->setProperty("status", "pending");
+             $project->setProperty("ID", 0);
+        
+             $entityManager->insert($project);
 
-         $project = new Entity();
-         $project->setProperty("table", "project");
-         $project->setProperty("name", $projectName);
-         $project->setProperty("user_id", $userId);
-         $project->setProperty("status", "pending");
-         $project->setProperty("ID", 0);
-         
-         $entityManager->insert($project);
-          
+        } catch (Exception $e)
+        {
+            echo $e->getMessage();
+        }
+
+    }
+
+
+
+    public function createProjectFromUserName(string $projectname, string $username)
+    {
+
+        try{
+   
+           $userId = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username", $username)->getPropertyValue("ID");
+
+           $this->createProject($projectname, $userId);
+
+           Header("Location:" . rootUrl);
+
+           return new Response("response");
+
+        } catch(Exception $e)
+        {
+            echo $e->getMesssage();
+
+        }
+
     }
 
 
