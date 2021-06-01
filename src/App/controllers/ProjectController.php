@@ -64,6 +64,21 @@ class ProjectController extends AbstractController
 
 
 
+    public function updateProjectStatus(int $projectId, string $newStatus) : void
+    {
+       
+      $project = $this->getSuperOrm()->getRepository("project")->getElementFromId($projectId);
+
+      $project->setProperty("status", $newStatus);
+
+      $this->getEntityManager()->insert($project);
+
+      Header("Location:" . rootUrl . "project?id=$projectid");
+
+    }
+
+
+
     
     public function getProjectFromId($projectId) : Object
     {  
@@ -83,6 +98,8 @@ class ProjectController extends AbstractController
 
             $project = $this->getProjectFromId($projectId);
 
+            $projectStatus = $project->getPropertyValue("status");
+
             $actions = $this->getSuperOrm()->getRepository("action")->getAllElementsFromProperty("project_id", $projectId);
 
 
@@ -91,15 +108,14 @@ class ProjectController extends AbstractController
 
 
                 if($_SESSION["username"] == admin){
-
-                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "actions" => $actions ]);
+                    $admin = true;
                 } else {
-
-                    return $this->renderPage( "user/projects/seeProject" , ["project" =>  $project, "actions" => $actions ]);
+                    $admin = false;
 
                 }
 
-
+                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
+      
             } else {
 
                 echo "vous n'avez pas accès à cette page";   

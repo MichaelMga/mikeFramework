@@ -26,6 +26,9 @@
 
          rootUrl . "newProject"=> ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "renderProjectCreationPage" , "parameters" => [] ],
 
+         rootUrl . "updateProjectStatus" => ["name" => "new action", "controller" => "App\Controllers\ProjectController" , "method" =>  "updateProjectStatus" , "parameters" => [$request->getGET("projectId", false) ,  $request->getGET("newStatus", false) ] ],
+
+
 
                rootUrl . "dbNewProject" => ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "createProjectFromUserName" , "parameters" => [ $request->getPost("project", "myrpject"), $request->getPost("userInput", "mikey") ] ],
          

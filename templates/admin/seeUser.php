@@ -60,13 +60,13 @@
 
    if(count($doneProjects) > 0){
 
-     foreach($doneProjects as $doneProject )
-     {
-       echo $doneProject ; 
-       echo "<a href='" . rootUrl  . "?id=" . $doneProject->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
-       echo "</br>";
-    }
+     foreach($doneProjects as $doneProject ){
 
+       echo $doneProject->getPropertyValue("name"); 
+       echo "<a href='" . rootUrl  . "project?id=" . $doneProject->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
+       echo "</br>";
+
+    }
 
    } else {
 
