@@ -30,6 +30,9 @@ class ActionController extends AbstractController
           $action->setProperty("ID", 0);
 
           $this->getEntityManager()->insert($action);
+
+
+          header("Location:" . rootUrl . "project?id= $projectId");
           
 
       }

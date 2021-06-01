@@ -19,7 +19,7 @@
 
          echo " (statut: en cours)"; 
          
-         echo "<a href='" .  . "'><button>Passer à fait</button></a>";
+         echo "<a href='"  . "'><button>Passer à fait</button></a>";
          echo "</br>";
  
        } else if($status == "doneAction") {
@@ -44,6 +44,10 @@
 
 
 
-
-
-
+<form action="<?php echo rootUrl ?>dbNewAction" method="post">
+  
+  <input name="action" type="text" placeholder="nouvelle action">
+  <input name="projectId" type="hidden" value="<?php echo $_GET["id"] ?>">
+  <input type="submit" value="créer action">
+         
+</form>
