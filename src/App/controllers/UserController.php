@@ -6,6 +6,7 @@
 
  use App\controllers\abstractClass\AbstractController;
  use App\component\httpComponent\Response;
+ use App\component\httpComponent\JsonResponse;
  use App\model\entities\Entity;
 
 
@@ -29,5 +30,15 @@ class UserController extends AbstractController
    
    }
 
+
+
+   public function getUserFromNameAsync($userName) : JsonResponse
+    {
+        
+      $foundUser = true;
+
+      return new JsonResponse(["foundUser" => $foundUser]);
+
+   }
 
 }

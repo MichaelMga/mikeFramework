@@ -19,6 +19,8 @@
    rootUrl . "users"=> ["name" => "seeUsers", "controller" => "App\Controllers\AdminController" , "method" =>  "seeUsers" , "parameters" => []  ],
 
           rootUrl . "user"=> ["name" => "seeUsers", "controller" => "App\Controllers\AdminController" , "method" =>  "seeUser" , "parameters" => [$request->getGet("id", 1)]  ],
+              rootUrl . "getUserAsync"=> ["name" => "seeUsers", "controller" => "App\Controllers\UserController" , "method" =>  "getUserFromNameAsync" , "parameters" => [$request->getPost("username", false)]  ],
+
 
    rootUrl . "project"=> ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "renderProjectPage" , "parameters" => [$request->getGet("id", 1)]  ],
 
