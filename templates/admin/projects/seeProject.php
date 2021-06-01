@@ -1,5 +1,45 @@
 <h1>Voici votre projet : <?php echo $project->getPropertyValue("name") ?></h1>
 
+<h1>Montant total à régler :</h1>
+
+  <?php 
+
+      echo "$totalPrice euros";
+
+  ?>
+
+</br>
+
+<h1>Montant réglé :</h1>
+
+
+<?php 
+
+    echo "$paidAmount euros";
+
+?>
+
+
+</br>
+
+<h1>Montant restant à régler :</h1>
+
+
+
+<?php 
+
+    echo "$leftAmount euros";
+
+?>
+
+
+
+
+
+</br>
+
+
+
 <?php 
 
 
@@ -81,17 +121,23 @@ if($admin == true){
 
 </br>
 </br>
-</br>
+
 <?php 
 
 if($admin == true){
+
   echo "<form action='" . rootUrl ."dbNewAction' method='post'>
   
    <input name='action' type='text' placeholder='nouvelle action'>
    <input name='projectId' type='hidden' value=" . $_GET["id"] . ">
    <input type='submit' value='créer action'>
-          
-  </form>";
+        
+   </form>";
+
+} else {
+    echo "</br>";
+    echo "<button>Payer</button>"; 
+
 }
 
 ?>

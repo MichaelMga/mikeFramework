@@ -103,6 +103,17 @@ class ProjectController extends AbstractController
             $actions = $this->getSuperOrm()->getRepository("action")->getAllElementsFromProperty("project_id", $projectId);
 
 
+            $totalPrice = 250;
+
+            $paidAmount = 120;
+
+            $leftAmount = 130;
+
+
+
+
+
+
 
             if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
 
@@ -114,7 +125,7 @@ class ProjectController extends AbstractController
 
                 }
 
-                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
+                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "totalPrice" => $totalPrice , "paidAmount" => $paidAmount, "leftAmount" => $leftAmount, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
       
             } else {
 
