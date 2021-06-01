@@ -35,7 +35,17 @@
 
          xrq.onload = function(){
 
-                console.log(this.responseText);
+                response = JSON.parse(this.responseText);
+
+                if(response.foundUser == true){
+
+                    alert("ok, utilisateur ajouté");
+
+                } else {
+
+                    alert("nous n'avons pas trouvé cet utilisateur");
+
+                }
          }
 
           xrq.open('POST', '<?php echo rootUrl . "getUserAsync" ?>', true);
