@@ -18,7 +18,7 @@ class ProjectController extends AbstractController
 {
 
 
-    public function createProject($projectName , $userId ) : void
+    public function createProject($projectName , $userId , int $price ) : void
     {  
 
         try { 
@@ -27,6 +27,8 @@ class ProjectController extends AbstractController
              $project->setProperty("table", "project");
              $project->setProperty("name", $projectName);
              $project->setProperty("user_id", intval($userId));
+             $project->setProperty("total_amount",$price);
+             $project->setProperty("paid_amount", 0);
              $project->setProperty("status", "pending");
              $project->setProperty("ID", 0);
         
@@ -41,14 +43,14 @@ class ProjectController extends AbstractController
 
 
 
-    public function createProjectFromUserName(string $projectname, string $username)
+    public function createProjectFromUserName(string $projectname, string $username, int $price)
     {
 
         try{
    
            $userId = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username", $username)->getPropertyValue("ID");
 
-           $this->createProject($projectname, $userId);
+           $this->createProject($projectname, $userId, $price);
 
            Header("Location:" . rootUrl);
 
@@ -103,14 +105,9 @@ class ProjectController extends AbstractController
             $actions = $this->getSuperOrm()->getRepository("action")->getAllElementsFromProperty("project_id", $projectId);
 
 
-            $totalPrice = 250;
-
-            $paidAmount = 120;
-
-            $leftAmount = 130;
-
-
-
+            $totalAmount =  $project->getPropertyValue("total_amount");
+            $paidAmount = $project->getPropertyValue("paid_amount");
+            $leftAmount =$totalAmount - $paidAmount;
 
 
 
@@ -125,7 +122,7 @@ class ProjectController extends AbstractController
 
                 }
 
-                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "totalPrice" => $totalPrice , "paidAmount" => $paidAmount, "leftAmount" => $leftAmount, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
+                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "totalAmount" => $totalAmount , "paidAmount" => $paidAmount, "leftAmount" => $leftAmount, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
       
             } else {
 

@@ -4,7 +4,7 @@
 
   <?php 
 
-      echo "$totalPrice euros";
+      echo "$totalAmount euros";
 
   ?>
 
@@ -136,7 +136,20 @@ if($admin == true){
 
 } else {
     echo "</br>";
-    echo "<button>Payer</button>"; 
+
+
+    echo "<form method='post' action = '" . rootUrl . "payment'>
+             <input id='' type='hidden'>
+             <input name='amount' value='$leftAmount' type='hidden'>
+           <button>Payer la totalité du montant restant</button>
+    
+        </form> </br></br>
+
+        <form method='post' action = '" . rootUrl . "payment'>
+            <input name='amount' type='number'>
+            <button>Payer une somme personalisée</button>
+        </form>  </br></br>        
+        "; 
 
 }
 

@@ -38,6 +38,7 @@ class ComposerStaticInit9801e3ac661d0e3082e241f2408294c5
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Component\\String\\' => 25,
             'Symfony\\Component\\Console\\' => 26,
+            'Stripe\\' => 7,
         ),
         'P' => 
         array (
@@ -102,6 +103,10 @@ class ComposerStaticInit9801e3ac661d0e3082e241f2408294c5
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
         ),
         'Psr\\Container\\' => 
         array (
