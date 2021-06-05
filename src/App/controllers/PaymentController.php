@@ -20,6 +20,26 @@ class PaymentController extends AbstractController
           return $this->renderPage( "cart/payment" ,["amount" => $amount ]);
 
      }
+
+
+
+     public function pay()
+     {
+
+          
+     }
+
+
+     public function renderSuccesfulPaymentPage() : Response
+     {
+          return new Response("succesful payment");
+     }
+
+
+     public function renderCanceledPaymentPage() : Response
+     {
+          return new Response("canceled payment");
+     }
      
 
 }

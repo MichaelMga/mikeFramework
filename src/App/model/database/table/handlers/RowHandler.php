@@ -237,6 +237,18 @@ class RowHandler
     }
 
 
+    public function getAllRowsSortedBy($sortTarget, $sortDirection) : array
+    {
+
+      $sql = "SELECT * FROM $this->table ORDER BY $sortTarget $sortDirection" ;
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute();
+
+      return $stmt->fetchAll();
+
+    }
+
+
 
     public function getAllRowsFromProperty($property, $value)
     {
@@ -257,6 +269,74 @@ class RowHandler
           }
 
     }
+
+
+
+    public function getAllRowsFromPropertySortedBy($property, $value, $sortTarget, $sortDirection)
+    {
+
+      try{
+        $sql = "SELECT * FROM $this->table WHERE $property=:property ORDER BY  $sortTarget $sortDirection" ;
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([":property" => $value]);
+
+        $result = $stmt->fetchAll();
+        return $result;
+
+      } catch (PDOException $e)
+      {
+        echo "row not found ";
+        echo $e->getMessage();
+
+      }
+
+
+    }
+
+
+    
+    public function getAllRowsFromPropertiesSortedBy(array $array, $sortTarget, $sortDirection)
+    {
+      $whereEncodedChain = "";
+      $wherePrepareArray = [];
+
+
+       $i = 0;
+
+      foreach($array as $key => $value)
+      {
+        $whereEncodedChain .= "$key = :val$i";
+        $wherePrepareArray[":val$i"] = $value;
+
+       if($i < count($array) - 1 )
+       {
+           $whereEncodedChain .= " AND ";
+       }
+         $i++;
+
+      }
+      
+
+
+     try{
+         $sql = "SELECT * FROM $this->table WHERE $whereEncodedChain ORDER BY $sortTarget $sortDirection" ;
+         $stmt = $this->conn->prepare($sql);
+         $stmt->execute($wherePrepareArray);
+         $result = $stmt->fetchAll();
+
+       return $result;
+
+     } catch (PDOException $e)
+     {
+       echo "row not found";
+       echo $e->getMessage();
+
+     }
+
+
+    }
+
+
 
 
     public function updateRowFromId(int $id ,string $updateQuery) : void

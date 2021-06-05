@@ -18,7 +18,7 @@ class AdminController extends AbstractController
 {
     public function seeUsers() : Response
     {
-        $users = $this->getSuperOrm()->getRepository("user")->getAll();
+        $users = $this->getSuperOrm()->getRepository("user")->getAllSortedy("username", "ASC");
         
 
         return $this->renderPage("admin/seeUsers", ["users" => $users]);

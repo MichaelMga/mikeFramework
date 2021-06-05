@@ -38,6 +38,9 @@
 
    rootUrl . "chat"=> ["name" => "seeProject", "controller" => "App\Controllers\ChatController" , "method" =>  "displayChat" , "parameters" => []  ],
 
-   rootUrl . "payment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderPaymentPage" , "parameters" => [$request->getPost("amount", false)] ]
+   rootUrl . "payment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderPaymentPage" , "parameters" => [$request->getPost("amount", false)] ],
+
+         rootUrl . "successfulPayment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderSuccesfulPaymentPage" , "parameters" => [] ],
+   
 
 ];
