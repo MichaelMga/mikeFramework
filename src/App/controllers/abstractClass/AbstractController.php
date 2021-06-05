@@ -45,7 +45,7 @@ abstract class AbstractController
    }   
 
 
-   public function renderPage($page, $array) : Response
+   public function renderPage($page, $array=[]) : Response
    {
 
       extract($array);

@@ -8,19 +8,17 @@
  use App\component\httpComponent\Response;
  use App\model\entities\Entity;
 
+ 
 
  require_once "src/services/database/entityManager.php";
 
 
-
-
-class AdminController extends AbstractController
-{
+ class AdminController extends AbstractController
+ {
     public function seeUsers() : Response
     {
         $users = $this->getSuperOrm()->getRepository("user")->getAllSortedy("username", "ASC");
         
-
         return $this->renderPage("admin/seeUsers", ["users" => $users]);
     }
 

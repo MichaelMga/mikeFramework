@@ -49,9 +49,7 @@ class ProjectController extends AbstractController
         try{
    
            $userId = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username", $username)->getPropertyValue("ID");
-
            $this->createProject($projectname, $userId, $price);
-
            Header("Location:" . rootUrl);
 
            return new Response("response");
@@ -70,9 +68,7 @@ class ProjectController extends AbstractController
     {
        
       $project = $this->getSuperOrm()->getRepository("project")->getElementFromId($projectId);
-
       $project->setProperty("status", $newStatus);
-
       $this->getEntityManager()->insert($project);
 
       Header("Location:" . rootUrl . "project?id=$projectid");
@@ -84,11 +80,9 @@ class ProjectController extends AbstractController
     
     public function getProjectFromId($projectId) : Object
     {  
-
         $project = $this->getSuperOrm()->getRepository("project")->getElementFromId($projectId);
 
         return $project;
-     
     }
 
 
@@ -99,17 +93,11 @@ class ProjectController extends AbstractController
         try{
 
             $project = $this->getProjectFromId($projectId);
-
             $projectStatus = $project->getPropertyValue("status");
-
             $actions = $this->getSuperOrm()->getRepository("action")->getAllElementsFromProperty("project_id", $projectId);
-
-
             $totalAmount =  $project->getPropertyValue("total_amount");
             $paidAmount = $project->getPropertyValue("paid_amount");
             $leftAmount =$totalAmount - $paidAmount;
-
-
 
 
             if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
@@ -132,9 +120,18 @@ class ProjectController extends AbstractController
         } catch(Exception $e)
         {
             echo $e->getMessage();
-
         }
  
+    }
+
+
+
+    public function renderAllProjectsPage() : Response
+    {
+        $pendingProjects = $this->getSuperOrm()->getRepository("project")->getAllElementsFromPropertySortedBy("status", "pending", "name", "ASC");
+        $doneProjects = $this->getSuperOrm()->getRepository("project")->getAllElementsFromPropertySortedBy("status", "done", "name", "ASC");
+         
+        return $this->renderPage("admin/projects/all", ["pendingProjects" => $pendingProjects , "doneProjects" => $doneProjects]);
     }
 
 
@@ -150,10 +147,15 @@ class ProjectController extends AbstractController
         $projects = $this->getSuperOrm()->getRepository("project")->getAllElementsFromProperty("user_id", $userId);
         
         return $projects;
-
     }
 
-    
+
+    public function getProjectsFromJson($projectString) : JsonResponse
+    {
+         $projects = ["projectA", "projectB"];
+
+         return new JsonResponse(["projects" => $projects ]);
+    }
 
 
 }

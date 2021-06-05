@@ -110,12 +110,12 @@
 
 
 
-    public function getAllRowsFromPropertySortedBy($property, $value, $sortTarget, $sortDirection)
+    public function getAllElementsFromPropertySortedBy($property, $value, $sortTarget, $sortDirection)
     {
         
         $entities = [];
             
-        $rows = $this->tableConn->getRowHandler()->getAllRowsFromPropertySortedBy($property,$value, $sortTarget, $sortDirectio);
+        $rows = $this->tableConn->getRowHandler()->getAllRowsFromPropertySortedBy($property,$value, $sortTarget, $sortDirection);
 
         foreach($rows as $row)
         {       
@@ -134,7 +134,7 @@
 
 
     
-    public function getAllRowsFromPropertiesSortedBy(array $array, $sortTarget, $sortDirection)
+    public function getAllElementsFromPropertiesSortedBy(array $array, $sortTarget, $sortDirection)
     {
 
         $entities = [];

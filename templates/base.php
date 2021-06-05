@@ -22,7 +22,7 @@
 
            if($_SESSION["username"] == admin){
               echo "<a href='" . rootUrl . "users'><button>Utilisateurs</button></a>";
-              echo "<a href='" . rootUrl . "users'><button>Projets</button></a>";
+              echo "<a href='" . rootUrl . "projects'><button>Projets</button></a>";
               echo "<a href='" . rootUrl . "newProject'><button>Créer un projet</button></a>";
            } 
 
