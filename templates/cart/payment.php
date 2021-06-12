@@ -4,9 +4,11 @@
 
 <h5>Amount to pay : </h5>
 
- <?php
-   echo $amount;   
- ?>
+<?php 
+   echo $amount;
+?>
+
+
 
 
     <section>
@@ -34,12 +36,13 @@
  <form action='<?php echo rootUrl ?>paymentApi' method="post" id="payment-form">
    <div class="form-row" id='InsideFormDiv'>
 
-   <div id='nameDiv' >
-     <label>Vos informations</label>
-     <input type="email" name="mail" placeholder='mail de réception des photographies achetées(important)'>
-     <input type="email" name="mail" placeholder='confirmation du mail'>
-     <input type="text" name="name" placeholder='nom/prénom'>
-  </div>
+     <div id='nameDiv' >
+       <label>Vos informations</label>
+       <input type="email" name="mail" placeholder='mail de réception des photographies achetées(important)'>
+       <input type="email" name="mail" placeholder='confirmation du mail'>
+       <input type="text" name="name" placeholder='nom/prénom'>
+       <input type="hidden" name="amount" placeholder='nom/prénom' value=<?php echo $amount ?>>
+    </div>
 
    <div id='creditCardDiv' >
 

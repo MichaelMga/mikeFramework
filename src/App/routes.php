@@ -39,12 +39,13 @@
                       
                         rootUrl . "updateActionStatus" => ["name" => "new action", "controller" => "App\Controllers\ActionController" , "method" =>  "updateActionStatus" , "parameters" => [$request->getGET("actionId", false) ,  $request->getGET("newStatus", false) ] ],
 
-
    rootUrl . "chat"=> ["name" => "seeProject", "controller" => "App\Controllers\ChatController" , "method" =>  "displayChat" , "parameters" => []  ],
 
    rootUrl . "payment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderPaymentPage" , "parameters" => [$request->getPost("amount", false)] ],
+   
+    rootUrl . "paymentApi" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "pay" , "parameters" => [ $request->getPost("stripeToken", false), $request->getPost("mail", false),  $request->getPost("name", false), $request->getPost("amount", false) ] ],
 
-         rootUrl . "successfulPayment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderSuccesfulPaymentPage" , "parameters" => [] ],
+    rootUrl . "successfulPayment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderSuccesfulPaymentPage" , "parameters" => [] ],
    
 
 ];

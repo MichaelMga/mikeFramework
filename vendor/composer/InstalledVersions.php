@@ -32,7 +32,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '4a60227ebaf4e6f78f68ce09c56f84bc1f53e766',
+    'reference' => 'd8f9cc4d0d2406f30a292e433bcfb68e657bae44',
     'name' => '__root__',
   ),
   'versions' => 
@@ -44,7 +44,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '4a60227ebaf4e6f78f68ce09c56f84bc1f53e766',
+      'reference' => 'd8f9cc4d0d2406f30a292e433bcfb68e657bae44',
     ),
     'doctrine/instantiator' => 
     array (
@@ -347,12 +347,12 @@ private static $installed = array (
     ),
     'stripe/stripe-php' => 
     array (
-      'pretty_version' => 'v7.80.0',
-      'version' => '7.80.0.0',
+      'pretty_version' => 'v7.83.0',
+      'version' => '7.83.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '566900968407302f88a925ba731c87c05fe98a7a',
+      'reference' => 'bb7244c7334ad8bf30d31bb4972d5aff57df1563',
     ),
     'symfony/console' => 
     array (
