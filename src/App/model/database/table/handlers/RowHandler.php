@@ -368,4 +368,16 @@ class RowHandler
 
 
 
+    public function getAllRowsWherePropertyLike($property, $string)
+    {
+      
+      $sql = "SELECT * FROM $this->table WHERE $property LIKE '%:string%'" ;
+      $stmt = $this->conn->prepare($sql);
+      $stmt->execute([':string' => $string]);
+
+      return $stmt->fetchAll();
+
+    }
+
+
 }

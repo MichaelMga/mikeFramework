@@ -1,19 +1,15 @@
 <h1>Your projects</h1>
 <br/><br/>
 
-<input id="projectInput" type="text" placeholder="Find your project">
-<button>Chercher</button>
-
 <div id="searchResults">
 
 </div>
 
 
-<br/><br/>
-
 <h3>Projets en cours</h3>
 
 <br/><br/>
+
   <?php 
 
     foreach($doneProjects as $project)
@@ -69,21 +65,33 @@
    {
        //ajax
 
+       searchResults.innerHTML = '';
+
        let xrq = new XMLHttpRequest();
 
        xrq.onload = function()
        {
-         alert("project sent!");
+
+         var projectNames = JSON.parse(this.responseText).projects;
+
+         for(var i=0; i < projectNames.length; i++)
+         {
+
+          searchResults.innerHTML += projectNames[i];
+
+
+         }
+  
+
        }
 
-       xrq.open('POST', '<?php echo rootUrl ?>getProjectsFromJson' , true);
+       xrq.open('POST', '<?php echo rootUrl ?>getProjectsFromString' , true);
 
        xrq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 
        xrq.send("projectString= myString");
 
-       searchResults.innerHTML = "" ;
    
    }
 

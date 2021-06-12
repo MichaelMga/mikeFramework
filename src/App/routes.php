@@ -24,7 +24,7 @@
 
    rootUrl . "projects" => ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "renderAllProjectsPage" , "parameters" => [$request->getGet("id", 1)]  ],
 
-   rootUrl . "getProjectsFromJson" => ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "getProjectsFromJson" , "parameters" => [ $request->getPost("projectString", false) ] ],
+   rootUrl . "getProjectsFromString" => ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "getProjectsMatchingString" , "parameters" => [ $request->getPost("projectString", false) ] ],
    
    rootUrl . "project"=> ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "renderProjectPage" , "parameters" => [$request->getGet("id", 1)]  ],
 

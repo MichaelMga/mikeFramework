@@ -37,10 +37,10 @@ class ActionTest extends TestCase
 
     public function canIcreateAction()
     {
-       $actionController = new ActionController();
-       $projectId = 12;
-       $name = "my action";
-       $actionController->createAction($projectId, $name);
+       //$actionController = new ActionController();
+       //$projectId = 8;
+       //$name = "my action";
+       //$actionController->createAction($projectId, $name);
 
     }
 

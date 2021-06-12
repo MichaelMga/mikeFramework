@@ -6,6 +6,7 @@
 
  use App\controllers\abstractClass\AbstractController;
  use App\component\httpComponent\Response;
+ use App\component\httpComponent\JsonResponse;
  use App\model\entities\Entity;
 
 
@@ -22,6 +23,7 @@ class ProjectController extends AbstractController
     {  
 
         try { 
+            
             $entityManager = $this->getEntityManager();
              $project = new Entity();
              $project->setProperty("table", "project");
@@ -87,7 +89,6 @@ class ProjectController extends AbstractController
 
 
 
-
     public function renderProjectPage($projectId)
     {
         try{
@@ -102,19 +103,18 @@ class ProjectController extends AbstractController
 
             if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true){
 
-
                 if($_SESSION["username"] == admin){
                     $admin = true;
                 } else {
                     $admin = false;
-
                 }
 
-                    return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "totalAmount" => $totalAmount , "paidAmount" => $paidAmount, "leftAmount" => $leftAmount, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
-      
+               return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "totalAmount" => $totalAmount , "paidAmount" => $paidAmount, "leftAmount" => $leftAmount, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
+    
             } else {
 
-                echo "vous n'avez pas accès à cette page";   
+                echo "vous n'avez pas accès à cette page";
+
             }
 
         } catch(Exception $e)
@@ -134,27 +134,43 @@ class ProjectController extends AbstractController
         return $this->renderPage("admin/projects/all", ["pendingProjects" => $pendingProjects , "doneProjects" => $doneProjects]);
     }
 
-
     public function renderProjectCreationPage() : Response
     {
          return $this->renderPage("admin/projects/new", []);
     }
 
-
-
     public function getProjectsPerUser($userId) : array
     {
         $projects = $this->getSuperOrm()->getRepository("project")->getAllElementsFromProperty("user_id", $userId);
-        
+
         return $projects;
+
     }
 
 
-    public function getProjectsFromJson($projectString) : JsonResponse
+    public function getProjectsMatchingString($projectString) : JsonResponse
     {
-         $projects = ["projectA", "projectB"];
 
-         return new JsonResponse(["projects" => $projects ]);
+         $projects = $this->getSuperOrm()->getRepository("project")->getAllElementsWherePropertyLike("name" , $projectString);
+
+         //find all projects with a starting by ...
+
+         $projectNames = [];
+
+         /*
+
+         foreach($projects as $project){
+
+            $projectNames[] = $project->getPropertyValue("name");
+
+         }
+
+         */
+
+         
+
+         return new JsonResponse(["projects" => $projectNames ]);
+
     }
 
 

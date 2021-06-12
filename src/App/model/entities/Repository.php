@@ -199,4 +199,25 @@
 
      }
 
+
+
+     public function getAllElementsWherePropertyLike($property, $string)
+     {
+        $entities = [];
+
+        $rows = $this->tableConn->getRowHandler()->getAllRowsWherePropertyLike($property,$string);
+    
+         foreach($rows as $row){
+
+            $rowConverter = new RowToObjectConverter($row, $this->table);
+            $entity = $rowConverter->getObject();
+            $entities[] = $entity;
+
+         }
+
+            return $entities;
+     }
+
+
+
  }
