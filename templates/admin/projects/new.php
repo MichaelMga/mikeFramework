@@ -15,7 +15,7 @@
    <form id="projectForm" action="<?php echo rootUrl . "dbNewProject" ?>" method="post">
      <input name="totalPrice" type="number" placeholder="montant de la prestation (modifiable)">
      <input name="project" type="text" placeholder="nom du projet">
-     <input id="userInput" value="false" name="user" type="hidden">
+     <input id="userInput" value="false" name="username" type="hidden">
      
    </form>
 

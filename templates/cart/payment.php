@@ -39,8 +39,7 @@
      <div id='nameDiv' >
        <label>Vos informations</label>
        <input type="email" name="mail" placeholder='mail de réception des photographies achetées(important)'>
-       <input type="email" name="mail" placeholder='confirmation du mail'>
-       <input type="text" name="name" placeholder='nom/prénom'>
+       <input type="hidden" name="name" placeholder='nom/prénom' value="<?php echo $_SESSION["username"] ?>">
        <input type="hidden" name="amount" placeholder='nom/prénom' value=<?php echo $amount ?>>
     </div>
 

@@ -28,7 +28,7 @@
 
         } else {
            echo "<a href='" . rootUrl . "login'><button>Se connecter</button></a>";
-           echo "<a href='<?php echo rootUrl ?>register'><button>Créer un compte</button></a>";
+           echo "<a href='" . rootUrl . "register'><button>Créer un compte</button></a>";
         }
         
       ?>   

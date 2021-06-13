@@ -61,12 +61,15 @@ class UserController extends AbstractController
       if($user != false){
 
         $username = $user->getPropertyValue("username");
+        $userId =  $user->getPropertyValue("ID");
 
       } else {
+
         $username = false;
+        $userId = false;
       }
 
-      return new JsonResponse(["user" => $username]);
+      return new JsonResponse(["user" => $username, "userId" => $userId]);
 
    }
 

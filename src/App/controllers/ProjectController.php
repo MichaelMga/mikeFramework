@@ -19,9 +19,8 @@ class ProjectController extends AbstractController
 {
 
 
-    public function createProject($projectName , $userId , int $price ) : void
+    public function createProject($projectName, $userId, int $price ) : void
     {  
-
         try { 
             
             $entityManager = $this->getEntityManager();
@@ -42,8 +41,6 @@ class ProjectController extends AbstractController
         }
 
     }
-
-
 
     public function createProjectFromUserName(string $projectname, string $username, int $price)
     {
