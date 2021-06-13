@@ -31,11 +31,11 @@ class SecurityController extends AbstractController
                 
                 $_SESSION["loggedIn"] = true;
                 $_SESSION["username"] = $username;
-                $_SESSION["user_id"] = $user->getPropertyValue("ID");                
+                $_SESSION["user_id"] = $user->getPropertyValue("ID"); 
+      
 
                 header("Location:" . rootUrl );
 
-             
             } else {
                 echo "wrong password";
              };
@@ -58,6 +58,8 @@ class SecurityController extends AbstractController
         $user->setProperty("table", "user");
         $user->setProperty("username", $username);
         $user->setProperty("hash", password_hash($password, PASSWORD_DEFAULT));
+        $user->setProperty("firstPayment", "true");
+        $user->setProperty("paymentId", "none");
         $user->setProperty("ID", 0);
 
         $entityManager->insert($user);

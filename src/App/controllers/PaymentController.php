@@ -31,12 +31,41 @@ class PaymentController extends AbstractController
          
          
           $stripe = new Stripe('sk_test_51IxbD8AxhkbQXqSAWWzfHf3gwc0d9Oj6ziEBgpcAOGuCVoMhHxshIfLURANm8nwv2ppRMAHNfAlsKY4CX4kXg7VO00t1CFJRoT');
+
+          $user = $this->getSuperOrm()->getRepository("user")->getElementFromId($_SESSION["user_id"]);
+
+          $entityManager = $this->getEntityManager();
+
+
+          if($user->getPropertyValue('firstPayment') == true){
+
+               $customer = $stripe->api('customers', [
+                    'source' => $token,
+                    'description' => $name,
+                    'email' => $email
+                   ]);
+
+                
+               $userEntity = new Entity();
+
+               $userEntity->setProperty("table", "user");
+               $userEntity->setProperty("firstPayment", "false");
+               $userEntity->setProperty("ID", $_SESSION["user_id"]);
+               $userEntity->setProperty("paymentId", $customer->id);
+
+
+
+               $entityManager->insert($userEntity);
+
+
+                $customerId = $customer->id;
+
+          } else {
+
+               $customerId = $user->getPropertyValue('payment_id');
+
+           }
          
-            $customer = $stripe->api('customers', [
-              'source' => $token,
-              'description' => $name,
-              'email' => $email
-             ]);
          
          
          
@@ -47,7 +76,7 @@ class PaymentController extends AbstractController
          
               'amount' => $amount,
               'currency' => 'eur',
-              'customer' => $customer->id]);
+              'customer' => $customerId ]);
          
            };
          
