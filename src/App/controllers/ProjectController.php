@@ -56,7 +56,6 @@ class ProjectController extends AbstractController
         } catch(Exception $e)
         {
             echo $e->getMesssage();
-
         }
 
     }

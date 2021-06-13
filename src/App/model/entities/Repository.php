@@ -53,7 +53,7 @@
             return $entity;
     
         } else {
-            echo "this row was not found";
+            //echo "this row was not found";
             return false;
         }
  
