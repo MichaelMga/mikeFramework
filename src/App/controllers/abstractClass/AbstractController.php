@@ -53,6 +53,9 @@ abstract class AbstractController
       ob_start();
       include "templates/base.php";
       include "templates/$page.php";
+      include "templates/footer.php";
+
+      
 
 
       $content = ob_get_clean();
