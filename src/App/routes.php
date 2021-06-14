@@ -14,13 +14,20 @@
     rootUrl . "register"=> ["name" => "register", "controller" => "App\Controllers\FrontController" , "method" =>  "displayPage" , "parameters" => ["admin/register/register", []]  ],
 
           rootUrl . "bRegister"=> ["bRegister" => "name", "controller" => "App\Controllers\SecurityController" , "method" =>  "tryToRegisterUser" , "parameters" => [$request->getPost("username", "admin"), $request->getPost("hash", "pass")]  ],
+    
+          rootUrl . "forgottenPass"=> ["bRegister" => "name", "controller" => "App\Controllers\SecurityController" , "method" =>  "renderForgottenPassForm" , "parameters" => [$request->getPost("username", "admin"), $request->getPost("hash", "pass")]  ],
 
    rootUrl . "users"=> ["name" => "seeUsers", "controller" => "App\Controllers\AdminController" , "method" =>  "seeUsers" , "parameters" => []  ],
+
 
           rootUrl . "user"=> ["name" => "seeUsers", "controller" => "App\Controllers\AdminController" , "method" =>  "seeUser" , "parameters" => [$request->getGet("id", 1)]  ],
 
               rootUrl . "getUserAsync"=> ["name" => "seeUsers", "controller" => "App\Controllers\UserController" , "method" =>  "getUserFromNameAsync" , "parameters" => [$request->getPost("username", false)]  ],
 
+              rootUrl . "getUserForLoginAsync"=> ["name" => "seeUsers", "controller" => "App\Controllers\UserController" , "method" =>  "getUserForLoginAsync" , "parameters" => [$request->getPost("username", false) ,$request->getPost("pass", false) ]  ],
+
+              rootUrl . "getUserForLoginAsync"=> ["name" => "seeUsers", "controller" => "App\Controllers\UserController" , "method" =>  "getUserForLoginAsync" , "parameters" => [$request->getPost("username", false) ,$request->getPost("pass", false) ]  ],
+              
    rootUrl . "projects" => ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "renderAllProjectsPage" , "parameters" => [$request->getGet("id", 1)]  ],
 
    rootUrl . "getProjectsFromString" => ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "getProjectsMatchingString" , "parameters" => [ $request->getPost("projectString", false) ] ],

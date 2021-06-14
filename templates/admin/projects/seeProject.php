@@ -135,6 +135,9 @@ if($admin == true){
    </form>";
 
 } else {
+
+   if($leftAmount > 0){
+
     echo "</br>";
 
 
@@ -151,6 +154,13 @@ if($admin == true){
             <button>Payer une somme personalisée</button>
         </form>  </br></br>        
         "; 
+
+
+   } else {
+
+    echo "<div>Le prix a été réglé dans son intégralité. :)</div>";
+   }
+  
 
 }
 

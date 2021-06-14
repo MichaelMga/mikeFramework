@@ -70,7 +70,7 @@ class ProjectController extends AbstractController
       $project->setProperty("status", $newStatus);
       $this->getEntityManager()->insert($project);
 
-      Header("Location:" . rootUrl . "project?id=$projectid");
+      Header("Location:" . rootUrl . "project?id=$projectId");
 
     }
 
@@ -174,7 +174,7 @@ class ProjectController extends AbstractController
 
     public function updateProjectPaidAmount($projectId, $paidAmount) : Response
     {
-          
+
         //current project amount
 
         $projectEntity = $this->getSuperOrm()->getRepository("project")->getElementFromId($projectId);
@@ -190,7 +190,9 @@ class ProjectController extends AbstractController
         $this->getEntityManager()->insert($project);
 
 
-         return new Response("amount updated ===> calc : " . $paidAmount  );
+        return new Response("amount updated" );
+
+        
     }
 
 

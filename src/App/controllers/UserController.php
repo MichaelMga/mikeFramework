@@ -65,4 +65,33 @@ class UserController extends AbstractController
       return new JsonResponse(["user" => $username, "userId" => $userId]);
    }
 
+
+   
+   public function getUserForLoginAsync(string $userName, $password) : JsonResponse
+    {
+      $user = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username", $userName);
+
+      if($user != false)
+      {
+          $hash = $user->getPropertyValue("hash");
+         
+           if( password_verify($password , $hash)){
+
+              return new JsonResponse(["user" => $userName]);
+
+          } else {
+              return new JsonResponse(["user" => false]);
+           };
+
+      } else {
+
+        return new JsonResponse(["user" => false]);
+      }
+
+   }
+
+
+
+
+
 }

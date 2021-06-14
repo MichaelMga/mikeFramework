@@ -25,15 +25,17 @@ Voici vos utilisateurs </br></br>
 <?php
   
   $usernames = [];
+  $userIds = [];
 
   foreach($users as $user){
 
     $usernames[] = $user->getPropertyValue("username");
+    $userIds[] = $user->getPropertyValue("ID");
 
     if( $user->getPropertyValue("username") != admin){
 
         echo $user->getPropertyValue("username");
-        echo " <a  href='" . rootUrl . "user?id= " . htmlentities($user->getPropertyValue("ID")) . "'><button>voir</button></a>";
+        echo " <a  href='" . rootUrl . "user?id=" . htmlentities($user->getPropertyValue("ID")) . "'><button>voir</button></a>";
         echo "</br></br>";
 
     }
@@ -50,10 +52,15 @@ Voici vos utilisateurs </br></br>
 
       var userInput = document.getElementById("userInput");
       var usernames = <?php echo json_encode($usernames) ?>;
+      var userIds = <?php echo json_encode($userIds) ?>;
 
       var foundUsersDiv = document.getElementById("foundUsers");
 
-   
+      var foundUsersArray = [];
+
+
+
+  
 
       userInput.addEventListener("keyup", function(){
 
@@ -63,16 +70,40 @@ Voici vos utilisateurs </br></br>
 
       function findUserFromString(string)
       {
-    
-               for(i=0; i < usernames.length; i++){
 
 
-                   if(usernames[i].substring(0,string.length) == string){
+        let found = 0;
 
-                        console.log(usernames[i]);
-                   } 
+        initFoundUsers();
 
-               }       
+        setTimeout(() => {
+
+          
+          for(i=0; i < usernames.length; i++){
+            
+
+
+                if(usernames[i].substring(0,string.length) == string && foundUsersArray.includes(usernames[i]) == false && string != ""){
+
+                     foundUsersArray.push(usernames[i]);
+                     foundUsersDiv.innerHTML += "<a href='<?php echo rootUrl ?>user?id=" + userIds[i] + "'>" + usernames[i] + "</a></br>"; 
+                     found++;
+ 
+               }
+
+           }  
+
+          
+        }, 100);
+         
          }
+
+
+   function initFoundUsers()
+   {
+     foundUsersDiv.innerHTML = "";
+     foundUsersArray = [];
+
+   }
 
  </script>

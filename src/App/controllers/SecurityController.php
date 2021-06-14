@@ -79,6 +79,16 @@ class SecurityController extends AbstractController
     }
 
 
+
+    public function renderForgottenPassForm() : Response
+    {
+
+             return $this->renderPage("admin/login/resetPassword");
+
+
+    }
+
+
     
 
 }

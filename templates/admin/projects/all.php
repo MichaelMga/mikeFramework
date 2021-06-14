@@ -5,8 +5,8 @@
 
 </div>
 
+<h3>Projets terminés</h3>
 
-<h3>Projets en cours</h3>
 
 <br/><br/>
 
@@ -15,9 +15,24 @@
     foreach($doneProjects as $project)
     {
 
-        echo $project->getPropertyValue("name");
-        echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
-        echo "</br>";
+        if($project->getPropertyValue("paid_amount") >= $project->getPropertyValue("total_amount")){
+
+           echo "(payé)";
+
+           echo $project->getPropertyValue("name");
+           echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
+           echo "</br>";
+
+        } else {
+
+           echo "(en attente de paiement)";
+
+
+            echo $project->getPropertyValue("name");
+            echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
+            echo "</br>";
+        }
+
 
     }
 
@@ -25,8 +40,8 @@
   ?>
   <br/><br/>
 
+  <h3>Projets en cours</h3>
 
-<h3>Projets terminés (paiement réalisé)</h3>
 
 <br/><br/>
 
@@ -44,8 +59,6 @@
 ?>
 
 <br/><br/>
-
-<h3> Projets terminés (en attente de paiement) </h3>
 
 <br/><br/>
 

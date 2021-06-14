@@ -4,6 +4,12 @@
 
     $classPath = str_replace("\\","/", $className);
 
-    require_once "src/$classPath.php";
+
+    if(file_exists("src/$classPath.php")){
+
+      require_once "src/$classPath.php";
+
+    }
+
 
  });
