@@ -40,7 +40,8 @@
        <label>Vos informations</label>
        <input type="email" name="mail" placeholder='mail de réception des photographies achetées(important)'>
        <input type="hidden" name="name" placeholder='nom/prénom' value="<?php echo $_SESSION["username"] ?>">
-       <input type="hidden" name="amount" placeholder='nom/prénom' value=<?php echo $amount ?>>
+       <input type="hidden" name="amount" value=<?php echo $amount ?>>
+       <input type="hidden" name="projectId" value=<?php echo $projectId ?>>
     </div>
 
    <div id='creditCardDiv' >

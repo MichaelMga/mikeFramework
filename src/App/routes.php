@@ -1,6 +1,5 @@
 <?php
 
-
  $routes = [
 
     rootUrl => ["name" => "home", "controller" => "App\Controllers\FrontController" , "method" =>  "renderHome" , "parameters" => []  ] ,
@@ -32,6 +31,7 @@
 
          rootUrl . "updateProjectStatus" => ["name" => "new action", "controller" => "App\Controllers\ProjectController" , "method" =>  "updateProjectStatus" , "parameters" => [$request->getGET("projectId", false) ,  $request->getGET("newStatus", false) ] ],
 
+           rootUrl . "updateProjectPaidAmount" => ["name" => "new action", "controller" => "App\Controllers\ProjectController" , "method" =>  "updateProjectPaidAmount" , "parameters" => [$request->getGET("projectId", false) ,  $request->getGET("amount", false) ] ] ,
 
                rootUrl . "dbNewProject" => ["name" => "seeProject", "controller" => "App\Controllers\ProjectController" , "method" =>  "createProjectFromUserName" , "parameters" => [ $request->getPost("project", "myrpject"), $request->getPost("username", "mikey"),  $request->getPost("totalPrice", 150) ] ],
          
@@ -39,13 +39,12 @@
                       
                         rootUrl . "updateActionStatus" => ["name" => "new action", "controller" => "App\Controllers\ActionController" , "method" =>  "updateActionStatus" , "parameters" => [$request->getGET("actionId", false) ,  $request->getGET("newStatus", false) ] ],
 
-   rootUrl . "chat"=> ["name" => "seeProject", "controller" => "App\Controllers\ChatController" , "method" =>  "displayChat" , "parameters" => []  ],
+    rootUrl . "chat"=> ["name" => "seeProject", "controller" => "App\Controllers\ChatController" , "method" =>  "displayChat" , "parameters" => []  ],
 
-   rootUrl . "payment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderPaymentPage" , "parameters" => [$request->getPost("amount", false)] ],
+    rootUrl . "payment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderPaymentPage" , "parameters" => [$request->getPost("amount", false), $request->getPost("projectId", false)] ],
    
-    rootUrl . "paymentApi" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "pay" , "parameters" => [ $request->getPost("stripeToken", false), $request->getPost("mail", false),  $request->getPost("name", false), $request->getPost("amount", false) ] ],
+    rootUrl . "paymentApi" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "pay" , "parameters" => [ $request->getPost("stripeToken", false), $request->getPost("mail", false),  $request->getPost("name", false), $request->getPost("amount", false) , $request->getPost("projectId", false) ]  ],
 
-    rootUrl . "successfulPayment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderSuccesfulPaymentPage" , "parameters" => [] ],
+    rootUrl . "successfulPayment" => ["name" => "new action", "controller" => "App\Controllers\PaymentController" , "method" =>  "renderSuccesfulPaymentPage" , "parameters" => [] ]
    
-
 ];

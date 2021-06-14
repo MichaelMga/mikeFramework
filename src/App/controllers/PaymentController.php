@@ -16,15 +16,16 @@
 class PaymentController extends AbstractController
 {
 
-     public function renderPaymentPage(int $amount) : Response
+     public function renderPaymentPage(int $amount, $projectId) : Response
      {
-          return $this->renderPage( "cart/payment" ,["amount" => $amount ]);
+
+          return $this->renderPage( "cart/payment" ,["amount" => $amount , "projectId" => $projectId]);
 
      }
 
 
 
-     public function pay($token, $email, $name, $amount) : Response
+     public function pay($token, $email, $name, $amount, $projectId)
      {  
                   
          if(filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($name) && !empty($token)){
@@ -79,18 +80,20 @@ class PaymentController extends AbstractController
               'customer' => $customerId ]);
          
            };
-         
-         
-           $error = $stripe->error;
-         
-            if($error != null){
 
-                 return new Response($error);
+
+
+         
+            if($stripe->error != null){
+
+                 return new Response($stripe->error);
 
            }
-            
 
-          return new Response("payment ok");
+            
+           //update the project amount to pay
+
+            header("Location:" . rootUrl . "updateProjectPaidAmount?projectId=" . $projectId ."&amount=" . $amount);
           
      }
 
@@ -105,6 +108,7 @@ class PaymentController extends AbstractController
      {
           return new Response("canceled payment");
      }
-     
+
+
 
 }

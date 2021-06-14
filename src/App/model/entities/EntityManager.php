@@ -25,7 +25,6 @@ class EntityManager
         if($table->getRowHandler()->findRowFromId(($entity->getPropertyValue("ID"))) == true){
 
             $EntityUpdateQueryBag = new EntityUpdateQueryBag($entity);
-            //echo $EntityUpdateQueryBag->getUpdateQuery();
             $table->getRowHandler()->updateRowFromId($entity->getPropertyValue("ID"), $EntityUpdateQueryBag->getUpdateQuery());
 
         } else {

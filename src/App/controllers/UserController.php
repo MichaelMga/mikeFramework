@@ -20,7 +20,6 @@ class UserController extends AbstractController
 
     public function seeUser($userId) : Response
     {
-
         $user = $this->getSuperOrm()->getRepository("user")->getElementFromId($userId);
         $pendingProjects = $this->getSuperOrm()->getRepository("project")->getAllElementsFromProperties(["user_id" => $userId, "status" => "pending" ]);
         $waitingPaymentProjects = $this->getSuperOrm()->getRepository("project")->getAllElementsFromProperties(["user_id" => $userId, "status" => "waitingPayment" ]);
@@ -28,28 +27,20 @@ class UserController extends AbstractController
         
           
         return $this->renderPage("admin/seeUser", ["user" => $user , "pendingProjects" =>  $pendingProjects , "waitingPaymentProjects" => $waitingPaymentProjects ,  "doneProjects" => $doneProjects ]);
-   
    }
-
 
 
    public function getUserFromName(string $userName) 
    {
      try{
-
          $user = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username",$userName);
 
         return $user;
 
-
      } catch (Exception $e)
      {
-
         echo $e->getMessage();
-
-
      }
-
 
    }
 
@@ -57,7 +48,6 @@ class UserController extends AbstractController
 
    public function getUserFromNameAsync(string $userName) : JsonResponse
     {
-        
       $user = $this->getUserFromName($userName);
 
       if($user != false){
@@ -69,10 +59,10 @@ class UserController extends AbstractController
 
         $username = false;
         $userId = false;
+        
       }
 
       return new JsonResponse(["user" => $username, "userId" => $userId]);
-
    }
 
 }

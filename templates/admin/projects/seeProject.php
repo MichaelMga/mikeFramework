@@ -141,6 +141,7 @@ if($admin == true){
     echo "<form method='post' action = '" . rootUrl . "payment'>
              <input id='' type='hidden'>
              <input name='amount' value='$leftAmount' type='hidden'>
+             <input name='projectId' value='$projectId' type='hidden'>
            <button>Payer la totalité du montant restant</button>
     
         </form> </br></br>

@@ -23,7 +23,8 @@ class ProjectController extends AbstractController
     {  
         try { 
             
-            $entityManager = $this->getEntityManager();
+             $entityManager = $this->getEntityManager();
+
              $project = new Entity();
              $project->setProperty("table", "project");
              $project->setProperty("name", $projectName);
@@ -105,7 +106,7 @@ class ProjectController extends AbstractController
                     $admin = false;
                 }
 
-               return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "totalAmount" => $totalAmount , "paidAmount" => $paidAmount, "leftAmount" => $leftAmount, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
+               return $this->renderPage( "admin/projects/seeProject" , ["project" =>  $project, "projectId" => $projectId , "totalAmount" => $totalAmount , "paidAmount" => $paidAmount, "leftAmount" => $leftAmount, "actions" => $actions , "projectStatus" => $projectStatus, "admin" => $admin]);
     
             } else {
 
@@ -167,6 +168,29 @@ class ProjectController extends AbstractController
 
          return new JsonResponse(["projects" => $projectNames ]);
 
+    }
+
+
+
+    public function updateProjectPaidAmount($projectId, $paidAmount) : Response
+    {
+          
+        //current project amount
+
+        $projectEntity = $this->getSuperOrm()->getRepository("project")->getElementFromId($projectId);
+
+        $currentlyPaidAmount = $projectEntity->getPropertyValue("paid_amount");
+
+        
+        $project = new Entity();
+        $project->setProperty("table", "project");
+        $project->setProperty("ID", $projectId);
+        $project->setProperty("paid_amount", ( $currentlyPaidAmount + $paidAmount  ) ) ;
+
+        $this->getEntityManager()->insert($project);
+
+
+         return new Response("amount updated ===> calc : " . $paidAmount  );
     }
 
 
