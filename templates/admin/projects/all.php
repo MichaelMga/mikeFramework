@@ -1,5 +1,3 @@
-<h1>Vos projets</h1>
-
 
 <div id="searchResults">
 
@@ -31,23 +29,20 @@
 
       if($project->getPropertyValue("paid_amount") >= $project->getPropertyValue("total_amount")){
 
-
          echo "<div class='projectsContainerDivA paidProjects'>";
 
-        echo $project->getPropertyValue("name");
-        echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
-        
-        echo "</div>";
+           echo "<div>" . $project->getPropertyValue("name") . "</div>";
+
+           echo "<div><a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a></div>";
+         
+         echo "</div>";
 
        } else {
 
-        echo "<div class='projectsContainerDivA unPaidProjects'>";
+         echo "<div class='projectsContainerDivA unPaidProjects'>";
 
-
-
-         echo $project->getPropertyValue("name");
-         echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
-         echo "</br>";
+           echo "<div>" . $project->getPropertyValue("name") . "</div>";
+           echo "<div><a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a></div>";
 
          echo "</div>";
 
@@ -79,19 +74,18 @@
          echo $project->getPropertyValue("name");
          echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
 
-         echo "</div>";
-
+      echo "</div>";
 
     } else {
 
       echo "<div class='projectsContainerDivA unPaidProjects'>";
     
-      echo $project->getPropertyValue("name");
-      echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
+        echo $project->getPropertyValue("name");
+
+
+        echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
       
       echo "</div>";
-
-
 
       
     }
@@ -102,9 +96,6 @@
 
 </div>
 
-<br/><br/>
-
-<br/><br/>
 
 
 

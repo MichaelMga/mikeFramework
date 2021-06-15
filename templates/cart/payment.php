@@ -1,21 +1,5 @@
-<h1>Stripe</h1>
+  
 
-<h5>Secure payment page</h5>
-
-<h5>Amount to pay : </h5>
-
-<?php 
-   echo $amount;
-?>
-
-
-
-
-    <section>
-      <div class="product">
-   
-      <button type="button" id="checkout-button">Checkout</button>
-    </section>
 
   </body>
  
@@ -25,26 +9,32 @@
 <script src="https://js.stripe.com/v3/"></script>
 
 
+</br>
 
-<div id='stripeLine'>Secure Payment with Stripe </div>  
+<div id='stripeLine'>Secured Payment with Stripe </div>  </br>
+<h4> Montant à régler : <?php  echo $amount ?> </h4>
 
-<div id='backgroundDiv'>
 
- <div id='paymentForm'>
 
 
  <form action='<?php echo rootUrl ?>paymentApi' method="post" id="payment-form">
-   <div class="form-row" id='InsideFormDiv'>
 
-     <div id='nameDiv' >
-       <label>Vos informations</label>
-       <input type="email" name="mail" placeholder='mail de réception des photographies achetées(important)'>
-       <input type="hidden" name="name" placeholder='nom/prénom' value="<?php echo $_SESSION["username"] ?>">
-       <input type="hidden" name="amount" value=<?php echo $amount ?>>
-       <input type="hidden" name="projectId" value=<?php echo $projectId ?>>
+     <div id='infoDiv' class="formRow" >
+     
+       <div id="infoDivA">  
+            <label>Vos informations</label>
+        </div>
+
+
+       <div id="infoDivB">  
+         <input class='infoDivBA' type="email" name="mail" placeholder='mail' value="michael.mangaj@hotmail.fr" readonly>
+         <input class='infoDivBA' type="text" name="name" placeholder='nom/prénom' value="<?php echo $_SESSION["username"] ?>" readonly>
+         <input type="hidden" name="amount" value=<?php echo $amount ?>>
+         <input type="hidden" name="projectId" value=<?php echo $projectId ?>>
+     </div>
     </div>
 
-   <div id='creditCardDiv' >
+   <div id='creditCardDiv'  class="formRow"  >
 
       <label for="card-element">
          Votre carte de crédit
@@ -54,18 +44,17 @@
         <!-- A Stripe Element will be inserted here. -->
       </div>
 
+
+
       <!-- Used to display form errors. -->
       <div id="card-errors" role="alert"></div>
 
-      <button class='btn btn-info' style='width:100%'>Submit Payment</button>
+      <button class='btn btn-info' style='width:100%'> Payer</button>
 
    </div>
 
- </div>
  </form>
 
- </div>
-</div>
 
 
 <script>

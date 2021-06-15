@@ -1,80 +1,155 @@
-<h1>Voici votre projet : <?php echo $project->getPropertyValue("name") ?></h1>
-
-<h1>Montant total à régler :</h1>
-
-  <?php 
-
-      echo "$totalAmount euros";
-
-  ?>
-
-</br>
-
-<h1>Montant réglé :</h1>
-
-
-<?php 
-
-    echo "$paidAmount euros";
-
-?>
-
-
-</br>
-
-<h1>Montant restant à régler :</h1>
 
 
 
 <?php 
-
-    echo "$leftAmount euros";
-
-?>
-
-
-
-
-
-</br>
-
-
-
-<?php 
-
 
 if($admin == true){
 
+  echo "<div id='newActionFormContainer'>";
 
-  if($projectStatus == "pending" )
-  {
-    echo '<h1>Projet en cours </h1>';
-    echo "<a href='" . rootUrl . "updateProjectStatus?projectId=" . $_GET["id"] . "&newStatus=done'><button>Passer le projet en terminé</button></a>";
+  echo "<form action='" . rootUrl ."dbNewAction' method='post'>
+  
+   <input name='action' type='text' placeholder='nouvelle action'>
+   <input name='projectId' type='hidden' value=" . $_GET["id"] . ">
+   <input type='submit' value='créer action'>
+        
+   </form>";
 
-  } else {
+  echo "</div>";
 
-    echo '<h1>Projet terminé </h1>';
-    echo "<a href='" . rootUrl . "updateProjectStatus?projectId=" . $_GET["id"] . "&newStatus=pending'><button>Repasser le projet à en cours</button></a>";
 
-  }
-
-}
-
+}  
 
 ?>
 
-<h1>Statut : en cours</h1>
 
-<h1> Devis :</h1>
+<div id="seeProjectContainer">
 
 
-<?php 
+    <div id="seeProjectContainerA">
+
+    <div id="seeProjectContainerAB">
+
+           <div class="seeProjectContainerABA"> Projet : <?php echo $project->getPropertyValue("name") ?> </div>
+
+      
+                
+            <?php 
+
+
+              if($admin == true){
+  
+                                                                                                                                                               
+               echo "<div class='seeProjectContainerABA'>";
+
+               if($projectStatus == "pending" )
+                {
+                  echo '<div class="seeProjectContainerABAA"><h4> Statut : </h4> en cours </div> ';
+                  echo "<div class='seeProjectContainerABAA'><a href='" . rootUrl . "updateProjectStatus?projectId=" . $_GET["id"] . "&newStatus=done'><button>Passer le projet en terminé</button></a></div>";
+                  
+                } else {
+
+                     echo '<div class="seeProjectContainerABAA"><h4> Statut : </h4> terminé </div>';
+                     echo "<div class='seeProjectContainerABAA'><a href='" . rootUrl . "updateProjectStatus?projectId=" . $_GET["id"] . "&newStatus=pending'><button>Repasser le projet à en cours</button></a></div>";     
+
+               }
+
+
+               echo "</div>";
+
+
+
+
+         } else {
+
+          if($leftAmount > 0){
+
+            echo "<div  class='seeProjectContainerABB'>";
+        
+        
+            echo "<form method='post' action = '" . rootUrl . "payment'>
+                     <input id='' type='hidden'>
+                     <input name='amount' value='$leftAmount' type='hidden'>
+                     <input name='projectId' value='$projectId' type='hidden'>
+                   <button>Payer la totalité du montant restant</button>
+            
+                </form> </br></br>
+        
+                <form method='post' action = '" . rootUrl . "payment'>
+                    <input name='amount' type='number'>
+                    <button>Payer une somme personalisée</button>
+                </form>  </br></br>        
+                ";
+        
+            echo "</div>";
+        
+        
+           } else {
+        
+            echo "<div>Le prix a été réglé dans son intégralité. :)</div>";
+
+
+           }
+
+
+
+         }
+
+
+          ?>
+
+    </div>
+
+
+     <div id="paymentInfoDiv">
+        <div id="paymentInfoDivA">
+         <div id="paymentInfoDivAA">Montant restant à régler</div>
+           <div id="paymentInfoDivAB">
+           <?php 
+               echo "$leftAmount  £";
+            ?>
+        </div>
+    </div>
+
+    <div id="paymentInfoDivB">
+       <div id="paymentInfoDivBA">
+            <div id="paymentInfoDivBAA">Montant total :</div>
+            <div id="paymentInfoDivBAB">
+               <?php 
+                 echo "$totalAmount  £";
+               ?>
+            </div>
+        </div>
+        <div id="paymentInfoDivBB">
+            <div id="paymentInfoDivBAA">Montant réglé :</div>
+            <div id="paymentInfoDivBAB">
+               <?php 
+                 echo "$paidAmount £";
+               ?>
+             </div>
+          </div>
+       </div>
+    </div>
+
+
+
+    </div>
+
+ 
+    <div id="seeProjectContainerB">
+
+    
+   <div id='actionsDiv'>
+
+   <?php 
 
    
   if(count($actions) > 0)
   {
     foreach($actions as $action)
     {
+       echo "<div class='actionsDivA'>";
+
        echo $action->getPropertyValue("name");
        $status = $action->getPropertyValue("status");
        $id = $action->getPropertyValue("ID");
@@ -88,7 +163,6 @@ if($admin == true){
                 echo "<a href='"  . rootUrl . "updateActionStatus?actionId=$id&newStatus=doneAction'><button>Passer à fait</button></a>";
          }
          
-         echo "</br>";
  
        } else if($status == "doneAction") {
 
@@ -99,7 +173,6 @@ if($admin == true){
                echo "<a href='"  . rootUrl . "updateActionStatus?actionId=$id&newStatus=pendingAction'><button>Repasser à en cours</button></a>";
 
          }
-         echo "</br>";
 
        
      } else {
@@ -108,6 +181,10 @@ if($admin == true){
          echo "</br>";
 
        }
+
+
+       echo "</div>";
+
  
     }
 
@@ -119,49 +196,18 @@ if($admin == true){
 
 ?>
 
-</br>
-</br>
 
-<?php 
-
-if($admin == true){
-
-  echo "<form action='" . rootUrl ."dbNewAction' method='post'>
-  
-   <input name='action' type='text' placeholder='nouvelle action'>
-   <input name='projectId' type='hidden' value=" . $_GET["id"] . ">
-   <input type='submit' value='créer action'>
-        
-   </form>";
-
-} else {
-
-   if($leftAmount > 0){
-
-    echo "</br>";
+   </div>
 
 
-    echo "<form method='post' action = '" . rootUrl . "payment'>
-             <input id='' type='hidden'>
-             <input name='amount' value='$leftAmount' type='hidden'>
-             <input name='projectId' value='$projectId' type='hidden'>
-           <button>Payer la totalité du montant restant</button>
-    
-        </form> </br></br>
 
-        <form method='post' action = '" . rootUrl . "payment'>
-            <input name='amount' type='number'>
-            <button>Payer une somme personalisée</button>
-        </form>  </br></br>        
-        "; 
+    </div>
+
+</div>
 
 
-   } else {
 
-    echo "<div>Le prix a été réglé dans son intégralité. :)</div>";
-   }
-  
 
-}
 
-?>
+
+</br></br>

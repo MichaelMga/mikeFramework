@@ -1,23 +1,30 @@
 
-<h1>Login</h1>
+<h1>Connectez vous</h1>
 
-<form id="loginForm" action="/theoweb/bLogin" method="post">
-  <input id="userInput" type="text" name="username">
-  <input id="userPass" type="password" name="hash" >
-</form>
+
+
+
+<div id="loginPageContainer">
+
+  <form id="loginForm" action="/theoweb/bLogin" method="post">
+    <input class="loginFormA" id="userInput" type="text" name="username">
+    <input class="loginFormA" id="userPass" type="password" name="hash" >
+  </form>
+
+  <button id="loginBtn" onclick="checkUser()">Connectez-vous</button>
+
+</div>
 
 </br>
 
-<button onclick="checkUser()">Connection</button>
-
-</br> </br>
 
 
-<a href = "<?php echo rootUrl ?>forgottenPass">Mot de passe oublié</a>
+<a id="forgottenPassLink" href = "<?php echo rootUrl ?>forgottenPass">Mot de passe oublié</a>
 
 
 
 <div id="errorDiv" style="color:red"></div>
+
 
 
 

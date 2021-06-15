@@ -1,14 +1,7 @@
-<style>
 
-
-
-</style>
-
-
-Voici vos utilisateurs </br></br>
 
 <form>
-   <input id="findUserInput" type="text" placeholder="utilisateur">
+   <input id="findUserInput" type="text" placeholder="Trouves tes utilisateurs">
 </form>
 
 
@@ -28,15 +21,6 @@ Voici vos utilisateurs </br></br>
 
       $usernames[] = $user->getPropertyValue("username");
       $userIds[] = $user->getPropertyValue("ID");
-
-      if( $user->getPropertyValue("username") != admin){
-          echo "<div class='usersDivA'>";
-          echo $user->getPropertyValue("username");
-          echo "<a  href='" . rootUrl . "user?id=" . htmlentities($user->getPropertyValue("ID")) . "'><button>voir</button></a>";
-          echo "</div></br></br>";
-
-
-       }
 
     }
 
