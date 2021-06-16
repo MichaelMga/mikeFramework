@@ -13,6 +13,10 @@
 
     rootUrl . "register"=> ["name" => "register", "controller" => "App\Controllers\FrontController" , "method" =>  "displayPage" , "parameters" => ["admin/register/register", []]  ],
 
+          rootUrl . "checkAvailableUsername"=> ["bRegister" => "name", "controller" => "App\Controllers\SecurityController" , "method" =>  "checkAvailableUsername" , "parameters" => [$request->getPost("username", "admin")]  ],
+
+          rootUrl . "checkAvailableMail"=> ["bRegister" => "name", "controller" => "App\Controllers\SecurityController" , "method" =>  "checkAvailableMail" , "parameters" => [$request->getPost("mail", false)]  ],
+
           rootUrl . "bRegister"=> ["bRegister" => "name", "controller" => "App\Controllers\SecurityController" , "method" =>  "tryToRegisterUser" , "parameters" => [$request->getPost("username", "admin"), $request->getPost("hash", "pass")]  ],
     
           rootUrl . "forgottenPass"=> ["bRegister" => "name", "controller" => "App\Controllers\SecurityController" , "method" =>  "renderForgottenPassForm" , "parameters" => [$request->getPost("username", "admin"), $request->getPost("hash", "pass")]  ],

@@ -1,5 +1,9 @@
 
 
+<div id='usersLogo'>
+    <img class="userImg" src="public/assets/img/user.png">
+</div>
+
 <form>
    <input id="findUserInput" type="text" placeholder="Trouves tes utilisateurs">
 </form>

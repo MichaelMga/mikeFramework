@@ -1,28 +1,46 @@
+  <style>
+
+      body{
+        background: rgb(237, 233, 233);
+
+      }
 
 
-  <h1>Crée un projet</h1>
 
-  </br>
-
-        
-    <input id="user" type="text" placeholder="trouve un utilisateur">
-    <button onclick="searchUser()">Chercher</button>
+  </style>
 
 
-    </br>
-    </br>
 
-   <form id="projectForm" action="<?php echo rootUrl . "dbNewProject" ?>" method="post">
-     <input name="totalPrice" type="number" placeholder="montant de la prestation (modifiable)">
-     <input name="project" type="text" placeholder="nom du projet">
-     <input id="userInput" value="false" name="username" type="hidden">
+  <div id="projectTopLogo">
+   
+        <img id="topProjectImg" src="public/assets/img/suitcase.png" alt="">
+
+  </div>
+
+  
+  <div id="newProjectContainer">
+       
+    <div id="findProjectUserDiv"> 
+       <input id="user" type="text" placeholder="trouve un utilisateur">
+       <button onclick="searchUser()">+</button>
+    </div>
+
+
+
+    <form id="projectForm" action="<?php echo rootUrl . "dbNewProject" ?>" method="post">
+
+      <input id="newProjectInput" name="totalPrice" type="number" placeholder="montant de la prestation (modifiable)">
+      <input id="projectName" name="project" type="text" placeholder="nom du projet">
+      <input id="userInput" value="false" name="username" type="hidden">
      
-   </form>
+    </form>
 
-   <button onclick="sendForm()">créer projet</button>
+   <button id="createProjectButton" onclick="sendForm()">créer projet</button>
 
-  
-  
+
+  </div>
+        
+
 
 
 

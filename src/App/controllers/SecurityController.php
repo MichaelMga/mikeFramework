@@ -6,6 +6,7 @@
 
  use App\controllers\abstractClass\AbstractController;
  use App\component\httpComponent\Response;
+ use App\component\httpComponent\JsonResponse;
  use App\model\entities\Entity;
 
 
@@ -67,6 +68,56 @@ class SecurityController extends AbstractController
         return new Response("we just registered $username");
         
     }
+
+
+
+
+
+    public function checkAvailableUsername(string $username) : JsonResponse
+    {
+        $availableUser = true;
+
+        $user = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("username", $username);
+
+        
+        if($user != false){
+
+            $availableUser = "none";
+
+        }
+
+        return new JsonResponse(["availableUser" => $availableUser ]);
+    
+    }
+
+
+
+
+    public function checkAvailableMail(string $mail) : JsonResponse
+    {
+        $availableMail = true;
+
+        $availableMail = $this->getSuperOrm()->getRepository("user")->getElementFromProperty("mail", $mail);
+
+        
+        if($availableMail != false){
+
+            $availableMail = "none";
+
+        } else {
+
+            $availableMail = true;
+
+        }
+
+
+        return new JsonResponse(["availableMail" => $availableMail ]);
+
+    }
+
+
+
+
 
 
 

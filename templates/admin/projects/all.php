@@ -4,8 +4,8 @@
 </div>
 
 <div id="paymentButtons">
-     <button onclick='displayPaidProjects()'>payés</button>
-     <button onclick='displayUnPaidProjects()'>impayés</button>
+     <button id="paidBtn" onclick='displayPaidProjects()'>payés</button>
+     <button id="unpaidBtn" onclick='displayUnPaidProjects()'>impayés</button>
 </div>
 
 
@@ -33,7 +33,7 @@
 
            echo "<div>" . $project->getPropertyValue("name") . "</div>";
 
-           echo "<div><a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a></div>";
+           echo "<div><a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><img class='projectLinkImg' src='public/assets/img/folder.png'></a></div>";
          
          echo "</div>";
 
@@ -42,7 +42,7 @@
          echo "<div class='projectsContainerDivA unPaidProjects'>";
 
            echo "<div>" . $project->getPropertyValue("name") . "</div>";
-           echo "<div><a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a></div>";
+           echo "<div><a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><img class='projectLinkImg' src='public/assets/img/folder.png'></a></div>";
 
          echo "</div>";
 
@@ -72,7 +72,7 @@
       echo "<div class='projectsContainerDivA paidProjects'>";
     
          echo $project->getPropertyValue("name");
-         echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
+         echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><img class='projectLinkImg' src='public/assets/img/folder.png'></a>";
 
       echo "</div>";
 
@@ -83,7 +83,7 @@
         echo $project->getPropertyValue("name");
 
 
-        echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
+        echo "<a href='" . rootUrl  . "project?id=" . $project->getPropertyValue("ID") . "'><img class='projectLinkImg' src='public/assets/img/folder.png'></a>";
       
       echo "</div>";
 
@@ -100,7 +100,6 @@
 
 
 <script>
-
 
 
 
@@ -172,6 +171,8 @@
    function displayPendingProjects()
    {
       hideDoneProjects();
+
+      displayPendingBtn();
       document.getElementById("pendingProjects").style.display = "flex";
    }
 
@@ -179,8 +180,8 @@
 
    function hideDoneProjects()
    {
+      hideDoneBtn();
       document.getElementById("doneProjects").style.display = "none";
-
 
    }
 
@@ -188,6 +189,8 @@
    function displayDoneProjects()
    {
      hidePendingProjects();
+
+     displayDoneBtn();
      document.getElementById("doneProjects").style.display = "flex";
 
    }
@@ -196,9 +199,44 @@
 
    function hidePendingProjects()
    {
+      hidePendingBtn()
       document.getElementById("pendingProjects").style.display = "none";
 
    }
+   
+
+
+   function displayPendingBtn(){
+
+        document.getElementById("pendingProjectsButton").style.background = "rgb(210, 204, 204)";
+
+   }
+
+
+   
+
+   function hidePendingBtn(){
+
+    document.getElementById("pendingProjectsButton").style.background = "rgb(220, 213, 213)";
+ 
+  }
+
+
+  function displayDoneBtn(){
+
+        document.getElementById("doneProjectsButton").style.background = "rgb(210, 204, 204)";
+
+   }
+
+
+
+
+  function hideDoneBtn(){
+
+      document.getElementById("doneProjectsButton").style.background = "rgb(220, 213, 213)";
+
+  } 
+ 
 
 
 

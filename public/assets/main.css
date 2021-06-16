@@ -11,6 +11,9 @@ button{
 
 a{
     cursor:pointer;
+    text-decoration: none;
+    color: rgb(96, 93, 93);
+
 }
 
 
@@ -27,7 +30,7 @@ body{
     left:0;
     width: 100%;
     height: 10%;
-    background:black;
+    background:rgb(67, 65, 65);
     z-index: 10;
 }
 
@@ -42,17 +45,48 @@ main{
 }
 
 
+
+/*
+
+  see users
+
+*/
+
+
+#usersLogo{
+
+    position: absolute;
+    top: 5%;
+    left: 22.25%;
+    height: 20%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.userImg{
+
+    height: 75%;
+    width: auto;
+
+}
+
+
+
 #findUserInput{ 
     position: absolute;
     top: 30%;
     height: 12.5%;
     width: 35%;
     left: 30%;
-    border-radius: 80px;
-    border-color: rgb(0,0,0,0.75);
+    border-radius: 10px;
+    border: 1px solid rgb(0,0,0,0.15);
     outline:none;
     padding-left:1%; 
     font-size: 1vw;
+    z-index: 2;
 }
 
 
@@ -64,8 +98,11 @@ main{
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 35%;
+    width: 34.75%;
+    border: 1px solid rgb(0,0,0,0.15);
     border-radius: 5px;
+    z-index: 1;
+
 }
 
 
@@ -103,11 +140,12 @@ main{
     justify-content: flex-start;
     background: white;
     z-index: 2;
+    
 }
 
 
 .foundUsersA:hover{
-    background: black;
+    background: rgb(230, 224, 224);
 }
 
 
@@ -130,16 +168,28 @@ main{
     margin-top:0.5vh;
     height: 10vh;
     width: 95%;
-    background: grey;
+    background: rgb(220, 213, 213);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    border-radius: 7.5px;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+
 }
 
 .nextLastButton{
     height: 50%;
     width: 10%;
+}
+
+
+#pendingProjectsButton{
+
+    background: rgb(210, 204, 204);
+  
+
 }
 
 #doneProjects{
@@ -150,18 +200,17 @@ main{
 
 
 #projectSideNav{
-    
     position: fixed;
-    left:1.5%;
+    left: 1.5%;
     top: 12.5%;
     height: 80%;
     width: 20%;
-    background: grey;
+    background: rgb(220, 213, 213);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
+    border-radius: 10px;
 }
 
 
@@ -178,7 +227,7 @@ main{
 
 .projectSideNavA:hover{
    
-    background: black;
+    background: rgb(210, 204, 204);
 
 }
 
@@ -327,6 +376,18 @@ main{
 
 }
 
+
+.projectLinkImg{
+
+    height: 70%;
+    width: auto;
+
+}
+
+.paidProjects{
+
+    display:none;
+}
 
 
 #seeProjectContainerAB{
@@ -602,3 +663,109 @@ main{
 }
 
 
+
+/*
+  
+  new project
+
+*/
+
+
+
+#newProjectContainer{
+
+   position: absolute;
+   top: 27.5%;
+   left: 30%;
+   height: 50%;
+   width: 40%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+}
+
+
+#projectForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 30%;
+    width: 100%;
+}
+
+
+#projectForm input{
+  height: 45%;
+  width: 100%;
+  border-radius: 10px;
+  border:none;
+}
+
+
+#findProjectUserDiv{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 12.5%;
+    width: 100%;
+}
+
+
+
+#findProjectUserDiv input{
+
+  height: 100%;
+  width: 82.5%;
+  border-radius: 10px;
+  border:none;
+
+}
+
+
+#newProjectInput{
+    height: 45%;
+    width: 100%;
+    border:none;
+}
+
+#findProjectUserDiv button{
+
+    height: 100%;
+    width: 15%;
+
+}
+
+
+#createProjectButton{
+
+    width: 100%;
+    height: 15%;
+    border-radius: 10px;
+    background: rgb(90, 90, 211);
+    color: white;
+    border: none;
+
+}
+
+
+
+#projectTopLogo{
+    position: absolute;
+    top: 2.5%;
+    left: 35%;
+    height: 20%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#topProjectImg{
+     height: 62.5%;
+     width: auto;
+}
