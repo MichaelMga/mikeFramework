@@ -1,6 +1,5 @@
-<?php
 
- //require_once $_SERVER["DOCUMENT_ROOT"] . '/MikeFramework/vendor/autoload.php';
+<?php
 
  require_once __DIR__ . '/src/autoload.php';
  require_once __DIR__ . '/src/const.php';
@@ -20,7 +19,7 @@
 
  try{
 
-    //does the matcher finds the route
+    //does the matcher find the route
 
     if($matcher->routeFound($url)){
 
@@ -47,6 +46,10 @@
 
 
  $response->send();
+
+
+
+
 
 
 

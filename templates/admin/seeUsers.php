@@ -41,6 +41,7 @@
  <script>
 
       var findUserInput = document.getElementById("findUserInput");
+      var foundUsers =  document.getElementById("foundUsers");
       var usernames = <?php echo json_encode($usernames) ?>;
       var userIds = <?php echo json_encode($userIds) ?>;
 
@@ -78,21 +79,32 @@
                      foundUsersArray.push(usernames[i]);
                      foundUsersDiv.innerHTML += "<a class='foundUsersA' href='<?php echo rootUrl ?>user?id=" + userIds[i] + "'><div>" + usernames[i] + "</div></a>"; 
                      found++;
- 
+
                }
 
+               
            }  
+
+
+
+           if(found > 0)
+           { 
+            foundUsers.style.display = "flex";
+
+           }
 
           
         }, 100);
          
-         }
+     }
 
 
    function initFoundUsers()
    {
      foundUsersDiv.innerHTML = "";
      foundUsersArray = [];
+     foundUsers.style.display = "none";
+
 
    }
 

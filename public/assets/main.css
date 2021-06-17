@@ -95,7 +95,7 @@ main{
     position: absolute;
     top: 43%;
     left: 30%;
-    display:flex;
+    display:none;
     flex-direction: column;
     justify-content: flex-start;
     width: 34.75%;
