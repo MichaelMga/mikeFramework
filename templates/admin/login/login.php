@@ -1,17 +1,26 @@
 
-<h1>Connectez vous</h1>
 
 
 
 
 <div id="loginPageContainer">
 
+
+<div id="loginHeader">
+
+  <div id="loginHeaderA"><img src="public/assets/img/profile.png"></div>
+
+  <div id="loginHeaderB"><h1>Connectez-vous</h1></div>
+
+</div>
+
+
   <form id="loginForm" action="/theoweb/bLogin" method="post">
     <input class="loginFormA" id="userInput" type="text" name="username">
     <input class="loginFormA" id="userPass" type="password" name="hash" >
   </form>
 
-  <button id="loginBtn" onclick="checkUser()">Connectez-vous</button>
+  <button id="loginBtn" onclick="checkUser()">Je me connecte</button>
 
 </div>
 
@@ -19,14 +28,18 @@
 
 
 
-<a id="forgottenPassLink" href = "<?php echo rootUrl ?>forgottenPass">Mot de passe oublié</a>
-
 
 
 <div id="errorDiv" style="color:red"></div>
 
 
 
+<div id="loginBottomDiv">
+      
+   <div  class="loginBottomDivA"><a href="register">Vous n'êtes pas inscrit?</a></div>
+
+
+</div>
 
 
 

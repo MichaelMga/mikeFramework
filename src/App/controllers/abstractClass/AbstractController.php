@@ -27,14 +27,16 @@ abstract class AbstractController
 
           if($_SESSION["username"] == admin){
 
-            include "templates/admin/index.php";
+            header("Location:" . rootUrl . "users" );
 
           } else {
              header("Location:" . rootUrl . "user?id=" . $_SESSION["user_id"] );
           }   
 
        } else {
-           include "templates/home.php";
+
+            header("Location:" . rootUrl . "login" );
+
        }
 
 

@@ -1,6 +1,20 @@
 </br> </br> 
 
-<h1>Créez un compte en 30 secondes!</h1>
+<div id="registerContainer">
+
+   <div id="registerHeader">
+
+       <div id="registerHeaderA">
+           <img class="userImg" src="public/assets/img/register.png">
+     </div>
+     
+      <div id="registerHeaderB">
+         <h2>Créez un compte en 30 secondes!</h2>
+      </div>
+ 
+ </div>
+
+
 
 <form id="registerForm" action="bRegister" method="post">
    <input id="usernameInput" class="registerFormA" type="text" name="username" placeholder="Nom d'utilisateur">
@@ -14,6 +28,7 @@
 
 
 
+</div>
 
 <script>
 

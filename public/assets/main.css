@@ -17,11 +17,18 @@ a{
 }
 
 
-
 body{
     font-family: 'Arvo', serif;
+    background: #f7f9fc;
 }
 
+
+
+.navImg{
+
+    height: 3.5vh;
+    width: auto;
+}
 
 #navBar{
 
@@ -32,6 +39,33 @@ body{
     height: 10%;
     background:rgb(67, 65, 65);
     z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#navBarA{
+  
+    height: 100%;
+    width: 20%;
+}
+
+#navBarA img{
+
+    height: 65%;
+    width: auto;
+    margin-left: 10%;
+    margin-top: 3%;
+}
+
+
+#navBarB{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 
@@ -45,6 +79,226 @@ main{
 }
 
 
+#registerBtn{
+    color: white;
+    background: rgb(67, 84, 210);
+    height: 3vh;
+    width: 5vw;
+    border-radius: 10px;
+    border:none;
+}
+/*
+    
+   home
+
+*/
+
+
+
+.homeImg{
+
+    height: 80%;
+    width: auto;
+}
+
+#leftHomeDiv{
+
+    position: absolute;
+    top: 12.5%;
+    left: 2.5%;
+    width: 20%;
+    height: 75%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.leftHomeDivA{
+
+    height: 25%;
+    width: 100%;
+    background: rgb(210, 204, 204);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.leftHomeDivAA{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.leftHomeDivAB{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.leftHomeDivABA{
+    
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.leftHomeDivABB{
+    height: 20%;
+    width: 100%;
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.leftHomeDivAAA{
+
+    height: 30%;
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#rightHomeDiv{
+    position: absolute;
+    top: 12.5%;
+    right: 2.5%;
+    width: 20%;
+    height: 75%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.rightHomeDivA{
+    height: 40%;
+    width: 100%;
+    background: rgb(210, 204, 204);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.rightHomeDivAA{
+    height: 35%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightHomeDivAAA{
+    height: 60%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.rightHomeDivAB{
+    height: 65%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.rightHomeDivABA{
+    
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.rightHomeDivABB{
+    height: 20%;
+    width: 100%;
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* 
+   
+   see user
+
+*/
+
+
+.userContainer{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.userContainerA{
+  
+     height: 80%;
+     width: 30%;
+
+}
+
+.userContainerAA{
+
+    height: 10%;
+    width: 100%;
+    background: red;
+
+}
+
+
+.userContainerAB{
+    
+    height: 90%;
+    width: 100%;
+    background: blue;
+
+}
+
 
 /*
 
@@ -53,10 +307,11 @@ main{
 */
 
 
+
 #usersLogo{
 
     position: absolute;
-    top: 5%;
+    top: 17.5%;
     left: 22.25%;
     height: 20%;
     width: 50%;
@@ -77,7 +332,7 @@ main{
 
 #findUserInput{ 
     position: absolute;
-    top: 30%;
+    top: 42.5%;
     height: 12.5%;
     width: 35%;
     left: 30%;
@@ -93,7 +348,7 @@ main{
 
 #foundUsers{
     position: absolute;
-    top: 43%;
+    top: 55%;
     left: 30%;
     display:none;
     flex-direction: column;
@@ -571,12 +826,48 @@ main{
 
 */
 
-#registerForm{
+
+#registerContainer{
+
     position: absolute;
-    border-radius: 10px;
-    top: 15%;
-    width: 40%;
-    height: 50%;
+    top: 10%;
+    left: 15%;
+    height: 80%;
+    width: 70%;
+    top: 10%;
+    left:15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+#submitBtn{
+   
+    background: rgb(90, 90, 211);
+    color:white;
+    font-size: 1vw;
+
+
+}
+
+#registerHeader{
+
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+#registerForm{
+    margin-top: 5%;
+    height: 70%;
+    width: 65%;
     left: 30%;
     display: flex;
     flex-direction: column;
@@ -601,11 +892,13 @@ main{
 
 */
 
+
+
 #loginPageContainer{
 
     position: absolute;
     border-radius: 10px;
-    top: 15%;
+    top: 20%;
     width: 35%;
     height: 50%;
     left: 32.5%;
@@ -614,6 +907,33 @@ main{
     justify-content: space-around;
 
 }
+
+
+
+
+#loginHeader{
+
+    height: 40%;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+#loginHeaderA{
+   
+    height: 80%;
+    width: 40%;
+
+}
+
+
+#loginHeaderA img{
+
+    height: 100%;
+    width: auto;
+}
+
 
 
 #loginForm{
@@ -643,6 +963,10 @@ main{
     height: 20%;
     border-radius: 10px;
     border-color: rgb(0,0,0,0.35);
+    background: rgb(90, 90, 211);
+    color:white;
+    font-size: 1vw;
+
 }
 
 #forgottenPassLink{
@@ -659,8 +983,31 @@ main{
     border-radius: 10px;
     top: 72.5%;
     left: 32.5%;
+}
+
+#loginBottomDiv{
+    position: absolute;
+    border-radius: 10px;
+    top: 75%;
+    height: 7.5%;
+    width: 35%;
+    left: 32.5%;   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.loginBottomDivA{
+    margin-left: 2%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
 }
+
+
 
 
 
@@ -700,7 +1047,9 @@ main{
   height: 45%;
   width: 100%;
   border-radius: 10px;
-  border:none;
+  border-color: rgb(0,0,0,0.35);
+  font-size: 1vw;
+
 }
 
 
@@ -712,6 +1061,8 @@ main{
     align-items: center;
     height: 12.5%;
     width: 100%;
+    border-color: rgb(0,0,0,0.35);
+
 }
 
 
@@ -721,7 +1072,8 @@ main{
   height: 100%;
   width: 82.5%;
   border-radius: 10px;
-  border:none;
+  border-color: rgb(0,0,0,0.35);
+  font-size: 1vw;
 
 }
 
@@ -729,13 +1081,17 @@ main{
 #newProjectInput{
     height: 45%;
     width: 100%;
-    border:none;
+    border-color: rgb(0,0,0,0.35);
+    font-size: 1vw;
+
 }
 
 #findProjectUserDiv button{
 
     height: 100%;
     width: 15%;
+    border-color: rgb(0,0,0,0.35);
+
 
 }
 
@@ -747,7 +1103,6 @@ main{
     border-radius: 10px;
     background: rgb(90, 90, 211);
     color: white;
-    border: none;
 
 }
 
@@ -769,3 +1124,55 @@ main{
      height: 62.5%;
      width: auto;
 }
+
+
+
+
+
+
+
+
+
+
+/*
+
+    mobile
+
+*/
+
+
+
+
+@media all and (max-width: 800px){
+
+    
+#loginPageContainer{
+
+    position: absolute;
+    border-radius: 10px;
+    top: 20%;
+    width: 90%;
+    height: 50%;
+    left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 2.25vw; 
+ }
+
+
+ #loginBottomDiv {
+
+    width: 90%;
+    left: 5%;
+
+ }
+
+
+ #loginBtn{
+
+    font-size: 3vw;
+ }
+
+}
+

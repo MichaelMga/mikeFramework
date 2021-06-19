@@ -1,13 +1,3 @@
-  <style>
-
-      body{
-        background: rgb(237, 233, 233);
-
-      }
-
-
-
-  </style>
 
 
 

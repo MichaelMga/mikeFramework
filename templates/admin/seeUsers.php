@@ -1,5 +1,74 @@
 
 
+<div id="leftHomeDiv">
+      <div class="leftHomeDivA">
+              <div class="leftHomeDivAA">
+                   <div class="leftHomeDivAAA">
+                          <img class="homeImg" src="public/assets/img/cash.png">
+                   </div>
+              </div>
+              <div class="leftHomeDivAB">
+                   <div class="leftHomeDivABA"> Cash total encaissé </div>
+                   <div class="leftHomeDivABB">£ 2500</div>
+               </div>
+     </div>
+
+         <div class="leftHomeDivA">
+             <div class="leftHomeDivAA">
+                   <div class="leftHomeDivAAA">
+                        <img class="homeImg" src="public/assets/img/finance.png">
+                   </div>
+              </div>
+              <div class="leftHomeDivAB">
+                   <div class="leftHomeDivABA">Total cash dû</div>
+                   <div class="leftHomeDivABB"> 275 £</div>
+               </div>
+     </div>
+     <div class="leftHomeDivA">
+             <div class="leftHomeDivAA">
+                   <div class="leftHomeDivAAA">
+                      <img class="homeImg" src="public/assets/img/users.png">
+                   </div>
+              </div>
+              <div class="leftHomeDivAB">
+                   <div class="leftHomeDivABA">Nombre d'utilisateurs</div>
+                   <div class="leftHomeDivABB"> 125</div>
+               </div>
+     </div>
+</div>
+
+
+
+<div id="rightHomeDiv">
+
+      <div class="rightHomeDivA">
+          <div class="rightHomeDivAA">
+              <div class="rightHomeDivAAA">
+                    <img class="homeImg" src="public/assets/img/test.png">
+              </div>
+          </div>
+          <div class="rightHomeDivAB">
+                  <div class="rightHomeDivABA">Projets en cours</div>
+                  <div class="rightHomeDivABB">17</div>            
+          </div>
+      </div>
+
+      <div class="rightHomeDivA">
+          <div class="rightHomeDivAA">
+                <div class="rightHomeDivAAA">
+                   <img class="homeImg" src="public/assets/img/valid.png">
+                </div>
+          </div>
+          <div class="rightHomeDivAB">
+                  <div class="rightHomeDivABA">Total projets accomplis</div>
+                  <div class="rightHomeDivABB">55</div>       
+          </div>
+      </div>
+
+</div>
+
+
+
 <div id='usersLogo'>
     <img class="userImg" src="public/assets/img/user.png">
 </div>
@@ -29,7 +98,6 @@
     }
 
   ?>
-
 
 
 

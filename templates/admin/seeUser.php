@@ -1,35 +1,51 @@
 
-<h1>Utilisateur : <?php echo $user->getPropertyValue("username")  ?></h1>
 
-</br>
 
-<h1> Projets en cours : </h1>
+<div id="userContainer">
+
+    <div id="userContainerA">
+
+         <div id="userContainerAA">
+  
+              <h1> Projets en cours : </h1>
+            
+         </div>
+
+ 
+    
+    
+  </div>
+
+
+
+</div>
+
 
 <?php 
 
+if(count($pendingProjects) > 0){
 
- if(count($pendingProjects) > 0){
-
-   foreach($pendingProjects as $pendingProject )
-   {
-        echo $pendingProject->getPropertyValue("name"); 
-        echo "<a href='" . rootUrl  . "project?id=" . $pendingProject->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
-        echo "</br>";
+    foreach($pendingProjects as $pendingProject )
+    {
+      echo $pendingProject->getPropertyValue("name"); 
+      echo "<a href='" . rootUrl  . "project?id=" . $pendingProject->getPropertyValue("ID") . "'><button>Voir projet </button></a>";
+      echo "</br>";
 
    }
- } else {
-
+   
+} else {
 
    echo "pas de projet en cours";
-
-
 
  }
 
 ?>
 
+
+<h1>Utilisateur : <?php echo $user->getPropertyValue("username")  ?></h1>
+
 </br>
-</br>
+
 
 
 <h1> Projets terminés (attente de paiement) : </h1>
