@@ -4,8 +4,8 @@
 </div>
 
 <div id="paymentButtons">
-     <button id="paidBtn" onclick='displayPaidProjects()'>payés</button>
-     <button id="unpaidBtn" onclick='displayUnPaidProjects()'>impayés</button>
+     <a id="paidBtn" onclick='displayPaidProjects()'><img class='cbImg' src='public/assets/img/paid.png'></a>
+     <a id="unpaidBtn" onclick='displayUnPaidProjects()'><img class='cbImg' src='public/assets/img/missing.svg'></a>
 </div>
 
 

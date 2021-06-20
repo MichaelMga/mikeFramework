@@ -9,7 +9,7 @@
               </div>
               <div class="leftHomeDivAB">
                    <div class="leftHomeDivABA"> Cash total encaissé </div>
-                   <div class="leftHomeDivABB">£ 2500</div>
+                   <div class="leftHomeDivABB">£ <?php echo $cashCollected ?></div>
                </div>
      </div>
 
@@ -21,7 +21,7 @@
               </div>
               <div class="leftHomeDivAB">
                    <div class="leftHomeDivABA">Total cash dû</div>
-                   <div class="leftHomeDivABB"> 275 £</div>
+                   <div class="leftHomeDivABB"> <?php echo $cashDue ?> £</div>
                </div>
      </div>
      <div class="leftHomeDivA">
@@ -32,7 +32,7 @@
               </div>
               <div class="leftHomeDivAB">
                    <div class="leftHomeDivABA">Nombre d'utilisateurs</div>
-                   <div class="leftHomeDivABB"> 125</div>
+                   <div class="leftHomeDivABB"> <?php echo  $usernum ?></div>
                </div>
      </div>
 </div>
@@ -49,7 +49,7 @@
           </div>
           <div class="rightHomeDivAB">
                   <div class="rightHomeDivABA">Projets en cours</div>
-                  <div class="rightHomeDivABB">17</div>            
+                  <div class="rightHomeDivABB"><?php echo  $pendingProjects ?></div>            
           </div>
       </div>
 
@@ -61,7 +61,7 @@
           </div>
           <div class="rightHomeDivAB">
                   <div class="rightHomeDivABA">Total projets accomplis</div>
-                  <div class="rightHomeDivABB">55</div>       
+                  <div class="rightHomeDivABB"> <?php echo  $doneProjects ?> </div>       
           </div>
       </div>
 
@@ -140,7 +140,6 @@
           
           for(i=0; i < usernames.length; i++){
             
-
 
                 if(usernames[i].substring(0,string.length) == string && foundUsersArray.includes(usernames[i]) == false && string != ""){
 

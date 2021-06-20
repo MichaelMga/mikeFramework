@@ -1,24 +1,39 @@
+<h1>Utilisateur : <?php echo $user->getPropertyValue("username")  ?></h1>
+
+</br>
+
+  <div id="seeUserHeadersDiv">
 
 
-
-<div id="userContainer">
-
-    <div id="userContainerA">
-
-         <div id="userContainerAA">
-  
-              <h1> Projets en cours : </h1>
+       <div class="seeUserHeadersDivA">
             
-         </div>
+              <h2> Projets en cours : </h2>        
+       </div>
 
- 
-    
-    
+        <div class="seeUserHeadersDivA">
+              <h2> Projets terminés (attente de paiement) : </h2>
+        </div>
+
+        <div class="seeUserHeadersDivA">
+                <h2> Projets terminés (paiement réalisé) : </h2>
+        </div>
+
+   
   </div>
 
 
+  <div id="seeProjectHeadersDiv">
 
-</div>
+       <div class="seeProjectHeadersDivA"></div>
+
+       <div></div>
+
+       <div></div>
+
+   
+  </div>
+
+
 
 
 <?php 
@@ -42,13 +57,10 @@ if(count($pendingProjects) > 0){
 ?>
 
 
-<h1>Utilisateur : <?php echo $user->getPropertyValue("username")  ?></h1>
-
-</br>
 
 
 
-<h1> Projets terminés (attente de paiement) : </h1>
+
 
 <?php 
 
@@ -69,7 +81,6 @@ if(count($pendingProjects) > 0){
 ?>
 
 
- <h1> Projets terminés (paiement réalisé) : </h1>
 
 
 <?php 

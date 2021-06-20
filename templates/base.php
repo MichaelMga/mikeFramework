@@ -34,17 +34,16 @@
 
 
                 if($_SESSION["username"] == admin){
-                    echo "<a href='" . rootUrl . "users'><button>Utilisateurs</button></a>";
-                    echo "<a href='" . rootUrl . "projects'><button>Projets</button></a>";
-                    echo "<a href='" . rootUrl . "newProject'><button>Créer un projet</button></a>";
+                    echo "<a href='" . rootUrl . "projects'><img class='navImg' src='public/assets/img/foldernav.png'></a>";
+                    echo "<a href='" . rootUrl . "newProject'><img class='newProjectImg' src='public/assets/img/newProject.png'></a>";
                  } 
 
-                 echo "<a href='" . rootUrl . "bLogout'><button>Se déconnecter</button></a>";
+                 echo "<a href='" . rootUrl . "bLogout'><img class='navImg' src='public/assets/img/logout.png'></a>";
 
   
              } else {
                 echo "<a href='" . rootUrl . "login'><img class='navImg' src='public/assets/img/login.png'></a>"; 
-                echo "<a href='" . rootUrl . "register'><button id='registerBtn'>Créer un compte</button></a>";
+                echo "<a href='" . rootUrl . "register'><img class='navImg' src='public/assets/img/registerNav.png'></a>";
              }
 
 
