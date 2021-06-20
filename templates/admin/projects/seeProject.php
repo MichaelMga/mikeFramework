@@ -7,11 +7,11 @@ if($admin == true){
 
   echo "<div id='newActionFormContainer'>";
 
-  echo "<form action='" . rootUrl ."dbNewAction' method='post'>
+  echo "<form style='display:flex; flex-direction:row; width:100%' action='" . rootUrl ."dbNewAction' method='post'>
   
    <input name='action' type='text' placeholder='nouvelle action'>
    <input name='projectId' type='hidden' value=" . $_GET["id"] . ">
-   <input type='submit' value='créer action'>
+   <input id='submitActionBtn' type='submit' value='créer une action'>
         
    </form>";
 
@@ -30,7 +30,7 @@ if($admin == true){
 
     <div id="seeProjectContainerAB">
 
-           <div class="seeProjectContainerABA"> Projet : <?php echo $project->getPropertyValue("name") ?> </div>
+           <div id="projectNameContainer" class="seeProjectContainerABA"> Projet : <?php echo $project->getPropertyValue("name") ?> </div>
 
       
                 
@@ -45,12 +45,12 @@ if($admin == true){
                if($projectStatus == "pending" )
                 {
                   echo '<div class="seeProjectContainerABAA"><h4> Statut : </h4> en cours </div> ';
-                  echo "<div class='seeProjectContainerABAA'><a href='" . rootUrl . "updateProjectStatus?projectId=" . $_GET["id"] . "&newStatus=done'><button>Passer le projet en terminé</button></a></div>";
+                  echo "<div class='seeProjectContainerABAA'><a href='" . rootUrl . "updateProjectStatus?projectId=" . $_GET["id"] . "&newStatus=done'><button id='projectDoneBtn'>Passer le projet en terminé</button></a></div>";
                   
                 } else {
 
                      echo '<div class="seeProjectContainerABAA"><h4> Statut : </h4> terminé </div>';
-                     echo "<div class='seeProjectContainerABAA'><a href='" . rootUrl . "updateProjectStatus?projectId=" . $_GET["id"] . "&newStatus=pending'><button>Repasser le projet à en cours</button></a></div>";     
+                     echo "<div class='seeProjectContainerABAA'><a href='" . rootUrl . "updateProjectStatus?projectId=" . $_GET["id"] . "&newStatus=pending'><button id='projectDoneBtn'>Repasser le projet à en cours</button></a></div>";     
 
                }
 
@@ -150,27 +150,27 @@ if($admin == true){
     {
        echo "<div class='actionsDivA'>";
 
-       echo $action->getPropertyValue("name");
+       echo "<div id='actionsDivAA'>" . $action->getPropertyValue("name");
        $status = $action->getPropertyValue("status");
        $id = $action->getPropertyValue("ID");
  
        if($status == "pendingAction"){
 
-         echo " (statut: en cours)"; 
+         echo " (statut: en cours)</div>"; 
 
          if($admin == true){
 
-                echo "<a href='"  . rootUrl . "updateActionStatus?actionId=$id&newStatus=doneAction'><button>Passer à fait</button></a>";
+                echo "<div id='actionsDivAB'><a href='"  . rootUrl . "updateActionStatus?actionId=$id&newStatus=doneAction'><button>Passer à fait</button></a></div>";
          }
          
  
        } else if($status == "doneAction") {
 
-         echo " (statut: terminé)"; 
+         echo " (statut: terminé)</div>"; 
 
          if($admin == true){
 
-               echo "<a href='"  . rootUrl . "updateActionStatus?actionId=$id&newStatus=pendingAction'><button>Repasser à en cours</button></a>";
+               echo "<div id='actionsDivAB'><a href='"  . rootUrl . "updateActionStatus?actionId=$id&newStatus=pendingAction'><button>Repasser à en cours</button></a></div>";
 
          }
 

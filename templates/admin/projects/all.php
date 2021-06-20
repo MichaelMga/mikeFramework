@@ -108,10 +108,9 @@
      hideUnPaidProjects();
 
      let paidProjects = document.querySelectorAll('.paidProjects');
-     
-     console.log(paidProjects);
+     document.getElementById("paidBtn").style.opacity = 1;
 
-
+    
       for(i=0; i < paidProjects.length; i++)
       {
         paidProjects[i].style.display = "flex";
@@ -125,6 +124,8 @@
    {
 
     let paidProjects = document.querySelectorAll('.paidProjects');
+    document.getElementById("paidBtn").style.opacity = 0.4;
+    
      
       for(i=0; i < paidProjects.length; i++)
       {
@@ -141,6 +142,8 @@
         hidePaidProjects();
 
         let unPaidProjects = document.querySelectorAll('.unPaidProjects');
+        document.getElementById("unpaidBtn").style.opacity = 1;
+
 
         for(i=0; i < unPaidProjects.length; i++)
         {
@@ -156,6 +159,8 @@
    {
 
     let unPaidProjects = document.querySelectorAll('.unPaidProjects');
+
+    document.getElementById("unpaidBtn").style.opacity = 0.4;
      
       for(i=0; i < unPaidProjects.length; i++)
       {

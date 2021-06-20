@@ -64,7 +64,6 @@
                   <div class="rightHomeDivABB"> <?php echo  $doneProjects ?> </div>       
           </div>
       </div>
-
 </div>
 
 
