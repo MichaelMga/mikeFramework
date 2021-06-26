@@ -1,11 +1,11 @@
 <?php
 
-  define("rootUrl" , "/theoweb/");
+  define("rootUrl" , "/");
   define("dbUsername" , "root");
   define("dbPassword" , "");
-  define("dbHost" , "localhost");
-  define("dbName" , "theodb");
-  define("admin" , "theoadmin");
+  define("dbHost" , "");
+  define("dbName" , "");
+  define("admin" , "");
 
 
 
